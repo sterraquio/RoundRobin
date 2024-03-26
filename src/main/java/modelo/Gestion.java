@@ -14,18 +14,16 @@ public class Gestion {
     private Proceso procesito;
 
     public Gestion() {
-
-    
+        listaProcesos = new ArrayList<>();
+        procesito = new Proceso();
 
     }
-    
-    public void Ingresar() {
-        
-           
-            
-        
+
+    public void ingresarProceso(Proceso procesito) {
+        listaProcesos.add(procesito);
+
     }
-    
+
     public List<Proceso> getListaProcesos() {
         return listaProcesos;
     }
