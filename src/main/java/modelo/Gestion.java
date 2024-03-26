@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import modelo.Proceso;
 
-/**
- *
- * @author camilotr
- */
+
 public class Gestion {
 
     private List<Proceso> listaProcesos = new ArrayList();

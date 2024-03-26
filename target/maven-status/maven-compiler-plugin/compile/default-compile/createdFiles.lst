@@ -1,3 +1,4 @@
-modelo/Gestion.class
-main/RoundRobin.class
-modelo/Proceso.class
+controlador\controladorProcesarGUI.class
+modelo\Proceso.class
+main\RoundRobin.class
+modelo\Gestion.class

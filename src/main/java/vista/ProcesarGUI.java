@@ -47,9 +47,15 @@ public class ProcesarGUI extends javax.swing.JFrame {
         jbl_canProceso = new javax.swing.JLabel();
         jbl_timeProcesos = new javax.swing.JLabel();
         jtf_canProceso = new javax.swing.JTextField();
-        jtf_timeProcesos = new javax.swing.JTextField();
+        jtf_TiempoEspera = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTfTiempoTerminacion = new javax.swing.JTextField();
+        jtfTiempoPromedioEspera = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -135,11 +141,11 @@ public class ProcesarGUI extends javax.swing.JFrame {
 
         jbl_canProceso.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jbl_canProceso.setForeground(new java.awt.Color(0, 0, 204));
-        jbl_canProceso.setText("Cantidad De Proceso");
+        jbl_canProceso.setText("Cantidad De Procesos:");
 
         jbl_timeProcesos.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jbl_timeProcesos.setForeground(new java.awt.Color(255, 0, 0));
-        jbl_timeProcesos.setText("Tiempo De Procesos");
+        jbl_timeProcesos.setText("Tiempo de espera: ");
 
         jtf_canProceso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,9 +153,9 @@ public class ProcesarGUI extends javax.swing.JFrame {
             }
         });
 
-        jtf_timeProcesos.addActionListener(new java.awt.event.ActionListener() {
+        jtf_TiempoEspera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtf_timeProcesosActionPerformed(evt);
+                jtf_TiempoEsperaActionPerformed(evt);
             }
         });
 
@@ -182,18 +188,28 @@ public class ProcesarGUI extends javax.swing.JFrame {
             jTable2.getColumnModel().getColumn(5).setResizable(false);
         }
 
+        jLabel1.setText("Tiempo de terminación de los procesos:");
+
+        jLabel2.setText("Tiempo promedio de espera: ");
+
+        jTfTiempoTerminacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTfTiempoTerminacionActionPerformed(evt);
+            }
+        });
+
+        jtfTiempoPromedioEspera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfTiempoPromedioEsperaActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Tiempo promedio del proceso");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,6 +230,15 @@ public class ProcesarGUI extends javax.swing.JFrame {
                             .addComponent(jtf_nombreP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jtf_quantum, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(45, 45, 45))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2)))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(181, 181, 181)
                 .addComponent(jbl_lisProcesos)
@@ -241,13 +266,20 @@ public class ProcesarGUI extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbl_canProceso)
-                            .addComponent(jbl_timeProcesos))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbl_canProceso, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jbl_timeProcesos)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(80, 80, 80)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtf_canProceso, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtf_timeProcesos, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(72, 72, 72))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtf_TiempoEspera, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                            .addComponent(jTextField1)
+                            .addComponent(jtf_canProceso, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                            .addComponent(jTfTiempoTerminacion)
+                            .addComponent(jtfTiempoPromedioEspera))))
+                .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,16 +318,29 @@ public class ProcesarGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbl_canProceso)
-                    .addComponent(jtf_canProceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jbl_canProceso)
+                            .addComponent(jtf_canProceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTfTiempoTerminacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbl_timeProcesos)
-                    .addComponent(jtf_timeProcesos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jtf_TiempoEspera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jtfTiempoPromedioEspera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(74, 74, 74)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(321, 321, 321))
+                .addGap(170, 170, 170))
         );
 
         pack();
@@ -314,9 +359,17 @@ public class ProcesarGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtf_canProcesoActionPerformed
 
-    private void jtf_timeProcesosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_timeProcesosActionPerformed
+    private void jtf_TiempoEsperaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_TiempoEsperaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtf_timeProcesosActionPerformed
+    }//GEN-LAST:event_jtf_TiempoEsperaActionPerformed
+
+    private void jTfTiempoTerminacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTfTiempoTerminacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTfTiempoTerminacionActionPerformed
+
+    private void jtfTiempoPromedioEsperaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfTiempoPromedioEsperaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfTiempoPromedioEsperaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -354,11 +407,16 @@ public class ProcesarGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTfTiempoTerminacion;
     private javax.swing.JLabel jbl_canProceso;
     private javax.swing.JLabel jbl_lisProcesos;
     private javax.swing.JLabel jbl_porcentaje;
@@ -371,12 +429,13 @@ public class ProcesarGUI extends javax.swing.JFrame {
     private javax.swing.JButton jbt_iniciar;
     private javax.swing.JLabel jlb_nombreP;
     private javax.swing.JTable jtb_lisProcesos;
+    private javax.swing.JTextField jtfTiempoPromedioEspera;
+    private javax.swing.JTextField jtf_TiempoEspera;
     private javax.swing.JTextField jtf_canProceso;
     private javax.swing.JTextField jtf_nombreP;
     private javax.swing.JTextField jtf_porcentaje;
     private javax.swing.JTextField jtf_proProceso;
     private javax.swing.JTextField jtf_quantum;
     private javax.swing.JTextField jtf_ragafaCPU;
-    private javax.swing.JTextField jtf_timeProcesos;
     // End of variables declaration//GEN-END:variables
 }

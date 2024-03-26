@@ -2,9 +2,7 @@
 package modelo;
 
 
-/**
- * @author camilotr
- */
+
 public class Proceso {
     
     private String nombreProceso;
