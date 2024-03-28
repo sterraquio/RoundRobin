@@ -1,11 +1,14 @@
+package modelo;
+
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Proceso;
 
 public class Gestion {
 
     private List<Proceso> listaProcesos;
 
+    
+    //Métodos
     public Gestion() {
         listaProcesos = new ArrayList<>();
     }
@@ -50,6 +53,27 @@ public class Gestion {
         }
         return sumaTiemposEspera / listaProcesos.size();
     }
+    
+    public void cicloRoundRobin(int rafaCPU, int quantum){
+
+        for (int i = 0; i < getListaProcesos().size(); i++) {
+            
+            if () {
+                
+            }
+            
+        }
+        
+    }
+
+    public List<Proceso> getListaProcesos() {
+        return listaProcesos;
+    }
+
+    public void setListaProcesos(List<Proceso> listaProcesos) {
+        this.listaProcesos = listaProcesos;
+    }
+    
 }
 
 
