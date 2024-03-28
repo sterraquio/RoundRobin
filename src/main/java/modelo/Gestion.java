@@ -7,8 +7,6 @@ public class Gestion {
 
     private List<Proceso> listaProcesos;
 
-    
-    //Métodos
     public Gestion() {
         listaProcesos = new ArrayList<>();
     }

@@ -6,7 +6,6 @@ import modelo.Gestion;
 import modelo.Proceso;
 import vista.ProcesarGUI;
 
-// En el botón iniciar debe mostrar un JOPTIon que el usuario ingrese el Quantum deseado para los procesos.
 public class ControladorProcesarGUI implements ActionListener {
 
     private ProcesarGUI procesitoGUI;
@@ -14,38 +13,29 @@ public class ControladorProcesarGUI implements ActionListener {
     private Proceso procesitoModelo;
     private ControladorProcesarGUI ctrlGUI;
 
-    public void ControladorProcesarGUI() {
-
+    // Constructor
+    public ControladorProcesarGUI() {
+        this.procesitoModelo = new Proceso();
         this.procesitoGUI = new ProcesarGUI();
         this.procesitoGUI.setVisible(true);
         this.procesitoGUI.jbt_agregar.addActionListener(this);
-
     }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.procesitoGUI.jbt_agregar) {
-
-            procesitoModelo = new Proceso();
+            
             procesitoModelo.setNombreProceso(this.procesitoGUI.jtf_nombreP.getText());
-            procesitoModelo.setQuantum(this.procesitoGUI.jSQuantum.getComponentCount());
-            procesitoModelo.setRafagaCPU(this.procesitoGUI.jSRafaCPU.getComponentCount());
+            procesitoModelo.setQuantum((int) this.procesitoGUI.jSQuantum.getValue());
+            procesitoModelo.setRafagaCPU((int) this.procesitoGUI.jSRafaCPU.getValue());
 
-            this.procesitoGestion.getListaProcesos().add(procesitoModelo);
+            this.procesitoGestion.agregarProceso(procesitoModelo);
 
             this.procesitoGUI.dispose();
-            javax.swing.JOptionPane.showMessageDialog(null, "Proceso agregado con exito : " + this.procesitoGUI.jtf_nombreP.getText());
-        }
-        
-        if (e.getSource() == this.procesitoGUI.jbt_agregar) {
-            ControladorProcesarGUI agregarProceso = new ControladorProcesarGUI();
-            agregarProceso.setCtrlGUI(this);
-
+            javax.swing.JOptionPane.showMessageDialog(null, "Proceso agregado con éxito: " + this.procesitoGUI.jtf_nombreP.getText());
         }
     }
-    
-    
-    
 
     public ProcesarGUI getProcesitoGUI() {
         return procesitoGUI;
@@ -72,3 +62,4 @@ public class ControladorProcesarGUI implements ActionListener {
     }
 
 }
+
