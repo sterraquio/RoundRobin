@@ -20,11 +20,14 @@ public class Gestion {
     public void iniciarEjecucion() {
         // Aquí implementa la lógica para ejecutar los procesos
         // Puedes utilizar el algoritmo de Round Robin aquí
+
+
     }
 
     public void actualizarTabla() {
         // Aquí implementa la lógica para actualizar la tabla de procesos
         // Puedes utilizar un método que actualice los datos en la interfaz gráfica
+        
     }
 
     public int calcularCantidadProcesosEjecutados() {
@@ -54,15 +57,9 @@ public class Gestion {
         return sumaTiemposEspera / listaProcesos.size();
     }
     
-    public void cicloRoundRobin(int rafaCPU, int quantum){
-
-        for (int i = 0; i < getListaProcesos().size(); i++) {
-            
-            if () {
-                
-            }
-            
-        }
+    public int actualizarRafaga(int rafaga,int quantum){
+        rafaga -= quantum;
+        return rafaga;
         
     }
 
