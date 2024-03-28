@@ -27,7 +27,7 @@ public class Gestion {
     public void actualizarTabla() {
         // Aquí implementa la lógica para actualizar la tabla de procesos
         // Puedes utilizar un método que actualice los datos en la interfaz gráfica
-        
+
     }
 
     public int calcularCantidadProcesosEjecutados() {
@@ -63,6 +63,8 @@ public class Gestion {
         
     }
 
+
+    //Getters y setters de lista
     public List<Proceso> getListaProcesos() {
         return listaProcesos;
     }
@@ -70,6 +72,9 @@ public class Gestion {
     public void setListaProcesos(List<Proceso> listaProcesos) {
         this.listaProcesos = listaProcesos;
     }
+
+    
+
     
 }
 
