@@ -10,8 +10,8 @@ public class Gestion {
         listaProcesos = new ArrayList<>();
     }
 
-    public void agregarProceso(Proceso proceso) {
-        listaProcesos.add(proceso);
+    public void agregarProceso(Proceso procesito) {
+        listaProcesos.add(procesito);
     }
 
     public void iniciarEjecucion() {
@@ -26,8 +26,8 @@ public class Gestion {
 
     public int calcularCantidadProcesosEjecutados() {
         int cantidadEjecutados = 0;
-        for (Proceso proceso : listaProcesos) {
-            if (proceso.getEstado().equals("Ejecutado")) {
+        for (Proceso procesito : listaProcesos) {
+            if (procesito.getEstado().equals("Ejecutado")) {
                 cantidadEjecutados++;
             }
         }
@@ -36,16 +36,17 @@ public class Gestion {
 
     public double calcularTiempoPromedioTerminacion() {
         double sumaTiemposTerminacion = 0;
-        for (Proceso proceso : listaProcesos) {
-            sumaTiemposTerminacion += proceso.getTiempoTerminacion();
+        for (Proceso procesito : listaProcesos) {
+            sumaTiemposTerminacion += procesito.getTiempoTerminacion();
         }
         return sumaTiemposTerminacion / listaProcesos.size();
+        
     }
 
     public double calcularTiempoPromedioEspera() {
         double sumaTiemposEspera = 0;
-        for (Proceso proceso : listaProcesos) {
-            sumaTiemposEspera += proceso.getTiempoEspera();
+        for (Proceso procesito : listaProcesos) {
+            sumaTiemposEspera += procesito.getTiempoEspera();
         }
         return sumaTiemposEspera / listaProcesos.size();
     }
