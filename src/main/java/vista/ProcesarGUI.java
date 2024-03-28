@@ -151,6 +151,7 @@ public class ProcesarGUI extends javax.swing.JFrame {
 
         jtf_canProceso.setEditable(false);
         jtf_canProceso.setBackground(new java.awt.Color(225, 225, 237));
+        jtf_canProceso.setBorder(null);
         jtf_canProceso.setEnabled(false);
         jtf_canProceso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,6 +161,7 @@ public class ProcesarGUI extends javax.swing.JFrame {
 
         jtf_TiempoEspera.setEditable(false);
         jtf_TiempoEspera.setBackground(new java.awt.Color(225, 225, 237));
+        jtf_TiempoEspera.setBorder(null);
         jtf_TiempoEspera.setEnabled(false);
         jtf_TiempoEspera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,6 +206,7 @@ public class ProcesarGUI extends javax.swing.JFrame {
 
         jTfTiempoTerminacion.setEditable(false);
         jTfTiempoTerminacion.setBackground(new java.awt.Color(225, 225, 237));
+        jTfTiempoTerminacion.setBorder(null);
         jTfTiempoTerminacion.setEnabled(false);
         jTfTiempoTerminacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,6 +216,7 @@ public class ProcesarGUI extends javax.swing.JFrame {
 
         jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(225, 225, 237));
+        jTextField1.setBorder(null);
         jTextField1.setEnabled(false);
 
         jLabel3.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
@@ -239,7 +243,7 @@ public class ProcesarGUI extends javax.swing.JFrame {
                             .addComponent(jbl_quantum)
                             .addComponent(jbl_ragafaCPU)
                             .addComponent(jlb_nombreP))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtf_nombreP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSQuantum, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -261,7 +265,7 @@ public class ProcesarGUI extends javax.swing.JFrame {
                             .addComponent(jbl_timeProcesos))
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jtf_canProceso)
+                            .addComponent(jtf_canProceso, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
                             .addComponent(jTfTiempoTerminacion)
                             .addComponent(jTextField1)
                             .addComponent(jtf_TiempoEspera)))
@@ -346,7 +350,7 @@ public class ProcesarGUI extends javax.swing.JFrame {
                     .addComponent(jtf_TiempoEspera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addContainerGap())
         );
 
         pack();

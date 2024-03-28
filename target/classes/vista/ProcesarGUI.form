@@ -10,7 +10,7 @@
     <Property name="title" type="java.lang.String" value="Round Robin"/>
     <Property name="alwaysOnTop" type="boolean" value="true"/>
     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-      <Color id="Cursor Por defecto"/>
+      <Color id="Default Cursor"/>
     </Property>
     <Property name="locationByPlatform" type="boolean" value="true"/>
     <Property name="undecorated" type="boolean" value="true"/>
@@ -50,7 +50,7 @@
                           <Component id="jbl_ragafaCPU" min="-2" max="-2" attributes="0"/>
                           <Component id="jlb_nombreP" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="189" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jtf_nombreP" alignment="1" min="-2" pref="155" max="-2" attributes="0"/>
                           <Component id="jSQuantum" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -79,7 +79,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jtf_canProceso" max="32767" attributes="0"/>
+                          <Component id="jtf_canProceso" pref="277" max="32767" attributes="0"/>
                           <Component id="jTfTiempoTerminacion" alignment="1" max="32767" attributes="0"/>
                           <Component id="jTextField1" alignment="1" max="32767" attributes="0"/>
                           <Component id="jtf_TiempoEspera" alignment="1" max="32767" attributes="0"/>
@@ -188,7 +188,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="224" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -420,6 +420,9 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ed" green="e1" red="e1" type="rgb"/>
         </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -434,6 +437,9 @@
         <Property name="editable" type="boolean" value="false"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ed" green="e1" red="e1" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
@@ -528,6 +534,9 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ed" green="e1" red="e1" type="rgb"/>
         </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -542,6 +551,9 @@
         <Property name="editable" type="boolean" value="false"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ed" green="e1" red="e1" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
