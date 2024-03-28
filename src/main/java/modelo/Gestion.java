@@ -17,13 +17,16 @@ public class Gestion {
         listaProcesos.add(procesito);
     }
 
+    
+    //Esté método posiblemente vaya en el controlador
     public void iniciarEjecucion() {
         // Aquí implementa la lógica para ejecutar los procesos
         // Puedes utilizar el algoritmo de Round Robin aquí
 
 
     }
-
+    
+    // Esté método posiblemente vaya en el controlador
     public void actualizarTabla() {
         // Aquí implementa la lógica para actualizar la tabla de procesos
         // Puedes utilizar un método que actualice los datos en la interfaz gráfica
