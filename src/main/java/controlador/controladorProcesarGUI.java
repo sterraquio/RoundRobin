@@ -7,14 +7,14 @@ import modelo.Proceso;
 import vista.ProcesarGUI;
 
 // En el botón iniciar debe mostrar un JOPTIon que el usuario ingrese el Quantum deseado para los procesos.
-public class controladorProcesarGUI implements ActionListener {
+public class ControladorProcesarGUI implements ActionListener {
 
     private ProcesarGUI procesitoGUI;
     private Gestion procesitoGestion;
     private Proceso procesitoModelo;
-    private controladorProcesarGUI ctrlGUI;
+    private ControladorProcesarGUI ctrlGUI;
 
-    public void controladorProcesarGUI() {
+    public void ControladorProcesarGUI() {
 
         this.procesitoGUI = new ProcesarGUI();
         this.procesitoGUI.setVisible(true);
@@ -38,7 +38,7 @@ public class controladorProcesarGUI implements ActionListener {
         }
         
         if (e.getSource() == this.procesitoGUI.jbt_agregar) {
-            controladorProcesarGUI agregarProceso = new controladorProcesarGUI();
+            ControladorProcesarGUI agregarProceso = new ControladorProcesarGUI();
             agregarProceso.setCtrlGUI(this);
 
         }
@@ -63,11 +63,11 @@ public class controladorProcesarGUI implements ActionListener {
         this.procesitoModelo = procesitoModelo;
     }
 
-    public controladorProcesarGUI getCtrlGUI() {
+    public ControladorProcesarGUI getCtrlGUI() {
         return ctrlGUI;
     }
 
-    public void setCtrlGUI(controladorProcesarGUI ctrlGUI) {
+    public void setCtrlGUI(ControladorProcesarGUI ctrlGUI) {
         this.ctrlGUI = ctrlGUI;
     }
 
