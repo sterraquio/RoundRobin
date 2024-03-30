@@ -4,6 +4,9 @@
  */
 package vista;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author camilotr
@@ -42,6 +45,7 @@ public class ProcesarGUI extends javax.swing.JFrame {
         jtf_porcentaje = new javax.swing.JTextField();
         jBarraProgreso = new javax.swing.JProgressBar();
         jSRafaCPU = new javax.swing.JSpinner();
+        jbt_salirPrograma = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Round Robin");
@@ -129,6 +133,15 @@ public class ProcesarGUI extends javax.swing.JFrame {
 
         jSRafaCPU.setName(""); // NOI18N
 
+        jbt_salirPrograma.setBackground(new java.awt.Color(255, 204, 204));
+        jbt_salirPrograma.setForeground(new java.awt.Color(255, 0, 0));
+        jbt_salirPrograma.setText("Salir del programa");
+        jbt_salirPrograma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbt_salirProgramaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,12 +151,16 @@ public class ProcesarGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jbl_ragafaCPU)
                     .addComponent(jlb_nombreP))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jtf_nombreP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSRafaCPU, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jbl_proProceso)
@@ -152,24 +169,23 @@ public class ProcesarGUI extends javax.swing.JFrame {
                         .addGap(69, 69, 69)
                         .addComponent(jbl_progreso))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jtf_proProceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)
-                        .addComponent(jtf_porcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBarraProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(226, Short.MAX_VALUE))
-            .addComponent(jScrollPane1)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(139, 139, 139)
                         .addComponent(jbt_agregar)
                         .addGap(99, 99, 99)
                         .addComponent(jbt_iniciar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(175, 175, 175)
-                        .addComponent(jbl_lisProcesos)))
-                .addGap(191, 191, 191))
+                        .addComponent(jbl_lisProcesos))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jtf_proProceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(jtf_porcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBarraProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(208, 208, 208)
+                        .addComponent(jbt_salirPrograma)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,7 +206,7 @@ public class ProcesarGUI extends javax.swing.JFrame {
                 .addComponent(jbl_lisProcesos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbl_proProceso)
                     .addComponent(jbl_porcentaje)
@@ -201,7 +217,9 @@ public class ProcesarGUI extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jtf_proProceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jtf_porcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(35, 35, 35))
+                .addGap(52, 52, 52)
+                .addComponent(jbt_salirPrograma)
+                .addGap(258, 258, 258))
         );
 
         pack();
@@ -217,6 +235,14 @@ public class ProcesarGUI extends javax.swing.JFrame {
         jtf_nombreP.setText("");
         //jSRafaCPU
     }//GEN-LAST:event_jbt_agregarMousePressed
+
+    private void jbt_salirProgramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_salirProgramaActionPerformed
+        // TODO add your handling code here:
+        jbt_salirPrograma.addActionListener((ActionEvent e) -> {
+            // Cerrar la ventana al hacer clic en el botón
+            dispose();
+        });
+    }//GEN-LAST:event_jbt_salirProgramaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,6 +290,7 @@ public class ProcesarGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jbl_ragafaCPU;
     public javax.swing.JButton jbt_agregar;
     public javax.swing.JButton jbt_iniciar;
+    private javax.swing.JButton jbt_salirPrograma;
     private javax.swing.JLabel jlb_nombreP;
     public javax.swing.JTable jtb_lisProcesos;
     public javax.swing.JTextField jtf_nombreP;
