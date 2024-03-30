@@ -3,15 +3,33 @@ package modelo;
 public class Proceso {
 
     private String nombreProceso;
+    private int numeroProceso;
     private int rafagaCPU;
     private int quantum;
     private int tiempoEspera;
     private int tiempoTerminacion;
     private int tiempoejecucion;
+    private int residuoRafaga;
     private String estado;
 
     // Constructor
     public Proceso() {
+    }
+
+    public int getNumeroProceso() {
+        return numeroProceso;
+    }
+
+    public void setNumeroProceso(int numeroProceso) {
+        this.numeroProceso = numeroProceso;
+    }
+
+    public int getResiduoRafaga() {
+        return residuoRafaga;
+    }
+
+    public void setResiduoRafaga(int residuoRafaga) {
+        this.residuoRafaga = residuoRafaga;
     }
 
     // Métodos getter y setter

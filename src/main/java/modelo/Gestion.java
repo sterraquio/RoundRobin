@@ -2,6 +2,8 @@ package modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import modelo.Proceso;
 
 public class Gestion {
 
@@ -24,12 +26,17 @@ public class Gestion {
 
     }
     
-    // Esté método posiblemente vaya en el controlador
-    public void actualizarTabla() {
-        // Aquí implementa la lógica para actualizar la tabla de procesos
-        // Puedes utilizar un método que actualice los datos en la interfaz gráfica
-
+    public void agregarProcesoATabla(DefaultTableModel modeloTabla, Proceso procesito) {
+        Object[] fila = new Object[6];
+        fila[0] = procesito.getNumeroProceso();
+        fila[1] = procesito.getNombreProceso();
+        fila[2] = procesito.getRafagaCPU();
+        fila[3] = procesito.getQuantum();
+        fila[4] = procesito.getResiduoRafaga();
+        fila[5] = procesito.getEstado();
+        modeloTabla.addRow(fila); // Agregar la fila al modelo de tabla
     }
+
 
     public int calcularCantidadProcesosEjecutados() {
         int cantidadEjecutados = 0;
