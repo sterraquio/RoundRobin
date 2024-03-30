@@ -7,10 +7,11 @@ import vista.ProcesarGUI;
 
 public class RoundRobin {
     public static void main(String[] args) {
-        
-        ProcesarGUI control = new ProcesarGUI();
-        
-        control.setVisible(true);
+         ControladorProcesarGUI controlador = new ControladorProcesarGUI();
+         
+//        
+//        ProcesarGUI control = new ProcesarGUI();
+//        control.setVisible(true);
     }
     
 }

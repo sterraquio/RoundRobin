@@ -30,8 +30,8 @@ public class ControladorProcesarGUI implements ActionListener {
 //            procesitoModelo.setQuantum((int) this.procesitoGUI.jSQuantum.getValue());
             procesitoModelo.setRafagaCPU((int) this.procesitoGUI.jSRafaCPU.getValue());
 
-            this.procesitoGestion.getListaProcesos().add(procesitoModelo);
-
+//            this.procesitoGestion.getListaProcesos().add(procesitoModelo);
+            this.ctrlGUI.getProcesitoGestion().getListaProcesos().add(procesitoModelo);
             this.procesitoGUI.dispose();
             javax.swing.JOptionPane.showMessageDialog(null, "Proceso agregado con éxito: " + this.procesitoGUI.jtf_nombreP.getText());
 
@@ -68,6 +68,10 @@ public class ControladorProcesarGUI implements ActionListener {
 
     public void setProcesitoGestion(Gestion procesitoGestion) {
         this.procesitoGestion = procesitoGestion;
+    }
+
+    public void setVisible(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
