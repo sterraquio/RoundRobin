@@ -9,7 +9,6 @@ import vista.ProcesarGUI;
 public class Gestion {
 
     private List<Proceso> listaProcesos;
-    private DefaultTableModel modeloTabla;
 
     public Gestion() {
         listaProcesos = new ArrayList<>();
@@ -28,7 +27,7 @@ public class Gestion {
 
     }
     
-public void agregarProcesoATabla(Proceso proceso) {
+public void agregarProcesoATabla(DefaultTableModel modeloTabla, Proceso proceso) {
     Object[] fila = new Object[6];
     fila[0] = proceso.getNumeroProceso(); // Ajusta el número de proceso según tu implementación
     fila[1] = proceso.getNombreProceso();
@@ -38,6 +37,8 @@ public void agregarProcesoATabla(Proceso proceso) {
     fila[5] = proceso.getEstado(); // Ajusta según corresponda
     modeloTabla.addRow(fila);
 }
+
+
 
 
 

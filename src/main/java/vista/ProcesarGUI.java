@@ -37,7 +37,7 @@ public class ProcesarGUI extends javax.swing.JFrame {
         jbt_iniciar = new javax.swing.JButton();
         jbl_lisProcesos = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        javax.swing.JTable jtb_lisProcesos = new javax.swing.JTable();
+        jtb_lisProcesos = new javax.swing.JTable();
         jbl_proProceso = new javax.swing.JLabel();
         jbl_porcentaje = new javax.swing.JLabel();
         jbl_progreso = new javax.swing.JLabel();
@@ -86,9 +86,6 @@ public class ProcesarGUI extends javax.swing.JFrame {
         jtb_lisProcesos.setForeground(new java.awt.Color(243, 227, 227));
         jtb_lisProcesos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
                 {null, null, null, null, null, null}
             },
             new String [] {
@@ -292,6 +289,7 @@ public class ProcesarGUI extends javax.swing.JFrame {
     public javax.swing.JButton jbt_iniciar;
     private javax.swing.JButton jbt_salirPrograma;
     private javax.swing.JLabel jlb_nombreP;
+    public javax.swing.JTable jtb_lisProcesos;
     public javax.swing.JTextField jtf_nombreP;
     public javax.swing.JTextField jtf_porcentaje;
     public javax.swing.JTextField jtf_proProceso;

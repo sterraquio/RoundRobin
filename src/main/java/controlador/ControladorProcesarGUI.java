@@ -12,6 +12,7 @@ public class ControladorProcesarGUI implements ActionListener {
     private ProcesarGUI procesitoGUI; //vista de la interzas
     private Gestion procesitoGestion;//modelo.gestion
     private Proceso procesitoModelo;// modelo.proceso
+    private DefaultTableModel modeloTabla; // Modelo de la tabla
 
     // Constructor
     public ControladorProcesarGUI() {
@@ -20,6 +21,7 @@ public class ControladorProcesarGUI implements ActionListener {
         this.procesitoGUI = new ProcesarGUI();//instancia de vista.procesarGUI
         this.procesitoGUI.setVisible(true);//hacer visible la intefaz
         this.procesitoGUI.jbt_agregar.addActionListener(this);//el escucha del boton agregar
+        this.modeloTabla = (DefaultTableModel) this.procesitoGUI.jtb_lisProcesos.getModel(); // Obtener el modelo de la tabla
 
     }
 // eventpos de los botones 
@@ -41,7 +43,7 @@ public class ControladorProcesarGUI implements ActionListener {
             this.procesitoGUI.jSRafaCPU.setValue(0);
 
             this.procesitoGestion.agregarProceso(procesitoModelo);
-            this.procesitoGestion.agregarProcesoATabla(procesitoModelo);
+            this.procesitoGestion.agregarProcesoATabla(modeloTabla, procesitoModelo);
         }
     }
 
