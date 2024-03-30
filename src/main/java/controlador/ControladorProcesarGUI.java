@@ -23,30 +23,27 @@ public class ControladorProcesarGUI implements ActionListener {
 
     }
 // eventpos de los botones 
+
     @Override
     // evento del boton agregar
-public void actionPerformed(ActionEvent e) {
-    if (e.getSource() == this.procesitoGUI.jbt_agregar) {
-        
-        procesitoModelo.setNombreProceso(this.procesitoGUI.jtf_nombreP.getText());//obtener la info nombre proceso
-        procesitoModelo.setRafagaCPU((int) this.procesitoGUI.jSRafaCPU.getValue());//info rafaga cpu
-        this.procesitoGestion.getListaProcesos().add(procesitoModelo);//agregar a la lista de procesos
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == this.procesitoGUI.jbt_agregar) {
 
-        
-        // Agregar el nuevo proceso a la lista en la clase Gestion
-        this.procesitoGestion.agregarProceso(procesitoModelo);
-        // Llamar al método que agrega el proceso a la tabla en la interfaz gráfica
-        this.procesitoGestion.agregarProcesoATabla((DefaultTableModel) this.procesitoGUI.jtb_lisProcesos.getModel(), procesitoModelo);
-        
-        // Mostrar mensaje sin cerrar la ventana principal
-        javax.swing.JOptionPane.showMessageDialog(this.procesitoGUI, "Proceso agregado con éxito: " + this.procesitoGUI.jtf_nombreP.getText());
-        
-        // Limpiar campos después de agregar el proceso
-        this.procesitoGUI.jtf_nombreP.setText("");
-        this.procesitoGUI.jSRafaCPU.setValue(0);
+            procesitoModelo.setNombreProceso(this.procesitoGUI.jtf_nombreP.getText());//obtener la info nombre proceso
+            procesitoModelo.setRafagaCPU((int) this.procesitoGUI.jSRafaCPU.getValue());//info rafaga cpu
+            this.procesitoGestion.getListaProcesos().add(procesitoModelo);//agregar a la lista de procesos
+
+            // Mostrar mensaje sin cerrar la ventana principal
+            javax.swing.JOptionPane.showMessageDialog(this.procesitoGUI, "Proceso agregado con éxito: " + this.procesitoGUI.jtf_nombreP.getText());
+
+            // Limpiar campos después de agregar el proceso
+            this.procesitoGUI.jtf_nombreP.setText("");
+            this.procesitoGUI.jSRafaCPU.setValue(0);
+
+            this.procesitoGestion.agregarProceso(procesitoModelo);
+            this.procesitoGestion.agregarProcesoATabla(procesitoModelo);
+        }
     }
-}
-
 
 //gets y sets 
     public ProcesarGUI getProcesitoGUI() {

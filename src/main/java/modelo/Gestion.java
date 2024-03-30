@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import modelo.Proceso;
+import vista.ProcesarGUI;
 
 public class Gestion {
 
     private List<Proceso> listaProcesos;
+    private DefaultTableModel modeloTabla;
 
     public Gestion() {
         listaProcesos = new ArrayList<>();
@@ -26,16 +28,17 @@ public class Gestion {
 
     }
     
-    public void agregarProcesoATabla(DefaultTableModel modeloTabla, Proceso procesito) {
-        Object[] fila = new Object[6];
-        fila[0] = procesito.getNumeroProceso();
-        fila[1] = procesito.getNombreProceso();
-        fila[2] = procesito.getRafagaCPU();
-        fila[3] = procesito.getQuantum();
-        fila[4] = procesito.getResiduoRafaga();
-        fila[5] = procesito.getEstado();
-        modeloTabla.addRow(fila); // Agregar la fila al modelo de tabla
-    }
+public void agregarProcesoATabla(Proceso proceso) {
+    Object[] fila = new Object[6];
+    fila[0] = proceso.getNumeroProceso(); // Ajusta el número de proceso según tu implementación
+    fila[1] = proceso.getNombreProceso();
+    fila[2] = proceso.getRafagaCPU();
+    fila[3] = proceso.getQuantum(); // Ajusta según corresponda
+    fila[4] = proceso.getResiduoRafaga(); // Ajusta según corresponda
+    fila[5] = proceso.getEstado(); // Ajusta según corresponda
+    modeloTabla.addRow(fila);
+}
+
 
 
     public int calcularCantidadProcesosEjecutados() {
