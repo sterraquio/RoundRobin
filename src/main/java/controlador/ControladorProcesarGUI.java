@@ -27,7 +27,7 @@ public class ControladorProcesarGUI implements ActionListener {
         if (e.getSource() == this.procesitoGUI.jbt_agregar) {
             
             procesitoModelo.setNombreProceso(this.procesitoGUI.jtf_nombreP.getText());
-            procesitoModelo.setQuantum((int) this.procesitoGUI.jSQuantum.getValue());
+//            procesitoModelo.setQuantum((int) this.procesitoGUI.jSQuantum.getValue());
             procesitoModelo.setRafagaCPU((int) this.procesitoGUI.jSRafaCPU.getValue());
 
             this.procesitoGestion.agregarProceso(procesitoModelo);
