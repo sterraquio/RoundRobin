@@ -8,27 +8,28 @@ import vista.ProcesarGUI;
 
 public class ControladorProcesarGUI implements ActionListener {
 
-    private ProcesarGUI procesitoGUI;
-    private Gestion procesitoGestion;
-    private Proceso procesitoModelo;
+    private ProcesarGUI procesitoGUI; //vista de la interzas
+    private Gestion procesitoGestion;//modelo.gestion
+    private Proceso procesitoModelo;// modelo.proceso
 
     // Constructor
     public ControladorProcesarGUI() {
-        this.procesitoModelo = new Proceso();
-        this.procesitoGestion = new Gestion(); // Asegúrate de crear una instancia de Gestion
-        this.procesitoGUI = new ProcesarGUI();
-        this.procesitoGUI.setVisible(true);
-        this.procesitoGUI.jbt_agregar.addActionListener(this);
+        this.procesitoModelo = new Proceso(); //instancia de modelo.proceso
+        this.procesitoGestion = new Gestion(); // instancia de modelo.gestion
+        this.procesitoGUI = new ProcesarGUI();//instancia de vista.procesarGUI
+        this.procesitoGUI.setVisible(true);//hacer visible la intefaz
+        this.procesitoGUI.jbt_agregar.addActionListener(this);//el escucha del boton agregar
 
     }
-
+// eventpos de los botones 
     @Override
+    // evento del boton agregar
 public void actionPerformed(ActionEvent e) {
     if (e.getSource() == this.procesitoGUI.jbt_agregar) {
-        procesitoModelo = new Proceso();
-        procesitoModelo.setNombreProceso(this.procesitoGUI.jtf_nombreP.getText());
-        procesitoModelo.setRafagaCPU((int) this.procesitoGUI.jSRafaCPU.getValue());
-        this.procesitoGestion.getListaProcesos().add(procesitoModelo);
+        
+        procesitoModelo.setNombreProceso(this.procesitoGUI.jtf_nombreP.getText());//obtener la info nombre proceso
+        procesitoModelo.setRafagaCPU((int) this.procesitoGUI.jSRafaCPU.getValue());//info rafaga cpu
+        this.procesitoGestion.getListaProcesos().add(procesitoModelo);//agregar a la lista de procesos
         
         // Mostrar mensaje sin cerrar la ventana principal
         javax.swing.JOptionPane.showMessageDialog(this.procesitoGUI, "Proceso agregado con éxito: " + this.procesitoGUI.jtf_nombreP.getText());
@@ -40,7 +41,7 @@ public void actionPerformed(ActionEvent e) {
 }
 
 
-
+//gets y sets 
     public ProcesarGUI getProcesitoGUI() {
         return procesitoGUI;
     }
