@@ -27,13 +27,17 @@ public class ControladorProcesarGUI implements ActionListener {
 // eventpos de los botones 
 
     @Override
-    // evento del boton agregar
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.procesitoGUI.jbt_agregar) {
+            // Crear una nueva instancia de Proceso
+            Proceso nuevoProceso = new Proceso();
 
-            procesitoModelo.setNombreProceso(this.procesitoGUI.jtf_nombreP.getText());//obtener la info nombre proceso
-            procesitoModelo.setRafagaCPU((int) this.procesitoGUI.jSRafaCPU.getValue());//info rafaga cpu
-            this.procesitoGestion.getListaProcesos().add(procesitoModelo);//agregar a la lista de procesos
+            // Configurar los valores del nuevo proceso
+            nuevoProceso.setNombreProceso(this.procesitoGUI.jtf_nombreP.getText());
+            nuevoProceso.setRafagaCPU((int) this.procesitoGUI.jSRafaCPU.getValue());
+
+            // Agregar el nuevo proceso a la lista de procesos en Gestion
+            this.procesitoGestion.agregarProceso(nuevoProceso);
 
             // Mostrar mensaje sin cerrar la ventana principal
             javax.swing.JOptionPane.showMessageDialog(this.procesitoGUI, "Proceso agregado con éxito: " + this.procesitoGUI.jtf_nombreP.getText());
@@ -42,8 +46,8 @@ public class ControladorProcesarGUI implements ActionListener {
             this.procesitoGUI.jtf_nombreP.setText("");
             this.procesitoGUI.jSRafaCPU.setValue(0);
 
-            this.procesitoGestion.agregarProceso(procesitoModelo);
-            this.procesitoGestion.agregarProcesoATabla(modeloTabla, procesitoModelo);
+            // Agregar el nuevo proceso a la tabla
+            this.procesitoGestion.agregarProcesoATabla(modeloTabla, nuevoProceso);
         }
     }
 

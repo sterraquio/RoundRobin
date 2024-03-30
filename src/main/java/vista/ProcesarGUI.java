@@ -83,7 +83,7 @@ public class ProcesarGUI extends javax.swing.JFrame {
         jbl_lisProcesos.setText("Lista De Procesos");
 
         jtb_lisProcesos.setBackground(new java.awt.Color(255, 245, 243));
-        jtb_lisProcesos.setForeground(new java.awt.Color(243, 227, 227));
+        jtb_lisProcesos.setForeground(new java.awt.Color(51, 0, 51));
         jtb_lisProcesos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null}

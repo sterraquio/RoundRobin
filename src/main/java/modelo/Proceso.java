@@ -10,7 +10,7 @@ public class Proceso {
     private int tiempoTerminacion;
     private int tiempoejecucion;
     private int residuoRafaga;
-    private String estado;
+    private String estado = "Listo";
 
     // Constructor
     public Proceso() {
