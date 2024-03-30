@@ -21,19 +21,20 @@ public class ControladorProcesarGUI implements ActionListener {
         this.procesitoGUI.jbt_agregar.addActionListener(this);
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.procesitoGUI.jbt_agregar) {
-            
+
+            procesitoModelo = new Proceso();
             procesitoModelo.setNombreProceso(this.procesitoGUI.jtf_nombreP.getText());
 //            procesitoModelo.setQuantum((int) this.procesitoGUI.jSQuantum.getValue());
             procesitoModelo.setRafagaCPU((int) this.procesitoGUI.jSRafaCPU.getValue());
 
-            this.procesitoGestion.agregarProceso(procesitoModelo);
+            this.procesitoGestion.getListaProcesos().add(procesitoModelo);
 
             this.procesitoGUI.dispose();
             javax.swing.JOptionPane.showMessageDialog(null, "Proceso agregado con éxito: " + this.procesitoGUI.jtf_nombreP.getText());
+
         }
     }
 
@@ -61,5 +62,12 @@ public class ControladorProcesarGUI implements ActionListener {
         this.ctrlGUI = ctrlGUI;
     }
 
-}
+    public Gestion getProcesitoGestion() {
+        return procesitoGestion;
+    }
 
+    public void setProcesitoGestion(Gestion procesitoGestion) {
+        this.procesitoGestion = procesitoGestion;
+    }
+
+}
