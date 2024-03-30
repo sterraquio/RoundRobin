@@ -11,32 +11,35 @@ public class ControladorProcesarGUI implements ActionListener {
     private ProcesarGUI procesitoGUI;
     private Gestion procesitoGestion;
     private Proceso procesitoModelo;
-    private ControladorProcesarGUI ctrlGUI;
 
     // Constructor
     public ControladorProcesarGUI() {
         this.procesitoModelo = new Proceso();
+        this.procesitoGestion = new Gestion(); // Asegúrate de crear una instancia de Gestion
         this.procesitoGUI = new ProcesarGUI();
         this.procesitoGUI.setVisible(true);
         this.procesitoGUI.jbt_agregar.addActionListener(this);
+
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.procesitoGUI.jbt_agregar) {
-
-            procesitoModelo = new Proceso();
-            procesitoModelo.setNombreProceso(this.procesitoGUI.jtf_nombreP.getText());
-//            procesitoModelo.setQuantum((int) this.procesitoGUI.jSQuantum.getValue());
-            procesitoModelo.setRafagaCPU((int) this.procesitoGUI.jSRafaCPU.getValue());
-
-//            this.procesitoGestion.getListaProcesos().add(procesitoModelo);
-            this.ctrlGUI.getProcesitoGestion().getListaProcesos().add(procesitoModelo);
-            this.procesitoGUI.dispose();
-            javax.swing.JOptionPane.showMessageDialog(null, "Proceso agregado con éxito: " + this.procesitoGUI.jtf_nombreP.getText());
-
-        }
+public void actionPerformed(ActionEvent e) {
+    if (e.getSource() == this.procesitoGUI.jbt_agregar) {
+        procesitoModelo = new Proceso();
+        procesitoModelo.setNombreProceso(this.procesitoGUI.jtf_nombreP.getText());
+        procesitoModelo.setRafagaCPU((int) this.procesitoGUI.jSRafaCPU.getValue());
+        this.procesitoGestion.getListaProcesos().add(procesitoModelo);
+        
+        // Mostrar mensaje sin cerrar la ventana principal
+        javax.swing.JOptionPane.showMessageDialog(this.procesitoGUI, "Proceso agregado con éxito: " + this.procesitoGUI.jtf_nombreP.getText());
+        
+        // Limpiar campos después de agregar el proceso
+        this.procesitoGUI.jtf_nombreP.setText("");
+        this.procesitoGUI.jSRafaCPU.setValue(0);
     }
+}
+
+
 
     public ProcesarGUI getProcesitoGUI() {
         return procesitoGUI;
@@ -52,14 +55,6 @@ public class ControladorProcesarGUI implements ActionListener {
 
     public void setProcesitoModelo(Proceso procesitoModelo) {
         this.procesitoModelo = procesitoModelo;
-    }
-
-    public ControladorProcesarGUI getCtrlGUI() {
-        return ctrlGUI;
-    }
-
-    public void setCtrlGUI(ControladorProcesarGUI ctrlGUI) {
-        this.ctrlGUI = ctrlGUI;
     }
 
     public Gestion getProcesitoGestion() {
