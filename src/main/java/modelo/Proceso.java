@@ -15,13 +15,14 @@ public class Proceso {
     // Constructor
     public Proceso() {
     }
+    
 
     public int getNumeroProceso() {
         return numeroProceso;
     }
 
     public void setNumeroProceso(int numeroProceso) {
-        this.numeroProceso = numeroProceso;
+        this.numeroProceso = numeroProceso + 1;
     }
 
     public int getResiduoRafaga() {
