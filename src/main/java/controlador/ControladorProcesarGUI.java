@@ -35,8 +35,8 @@ public void actionPerformed(ActionEvent e) {
         // Configurar los valores del nuevo proceso
         nuevoProceso.setNombreProceso(this.procesitoGUI.jtf_nombreP.getText());
         nuevoProceso.setRafagaCPU((int) this.procesitoGUI.jSRafaCPU.getValue());
-        // Aquí debes establecer el valor del quantum al proceso
-        nuevoProceso.setQuantum(/* Obtiene el valor del quantum */);
+        // Aquí debes establecer el valor del quantum al proceso cuando se coloque sea el jtf o el js
+//        nuevoProceso.setQuantum(/* Obtiene el valor del quantum */);
 
         // Agregar el nuevo proceso a la lista de procesos en Gestion
         this.procesitoGestion.agregarProceso(nuevoProceso);
@@ -57,7 +57,7 @@ public void actionPerformed(ActionEvent e) {
         
         // Obtener el valor del quantum desde la interfaz de usuario o de donde sea necesario
         //cuando hagamos el este de que el usuario dije el quamtum pa todo el proceso asi se puede cambiar
-        //pero se debe hacer el getText 
+        //pero se debe hacer el getText
         int quantum = procesitoModelo.getQuantum();
         // Iniciar la ejecución con el quantum adecuado
         this.procesitoGestion.iniciarEjecucion(quantum);
