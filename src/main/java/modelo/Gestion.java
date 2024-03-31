@@ -15,7 +15,7 @@ public class Gestion {
     }
 
     public void agregarProceso(Proceso procesito) {
-        procesito.setNumeroProceso(listaProcesos.size() + 1 - 1);
+        procesito.setNumeroProceso(listaProcesos.size());
         listaProcesos.add(procesito);
     }
 
