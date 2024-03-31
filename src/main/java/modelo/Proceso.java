@@ -93,13 +93,7 @@ public class Proceso {
         this.estado = estado;
     }
 
-    public int[] getQuantumDisponible() {
-        return QuantumDisponible;
-    }
 
-    public void setQuantumDisponible(int[] QuantumDisponible) {
-        this.QuantumDisponible = QuantumDisponible;
-    }
     
     
 }
