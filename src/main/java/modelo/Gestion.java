@@ -10,6 +10,7 @@ public class Gestion {
 
     private List<Proceso> listaProcesos;
 
+    //Constructor
     public Gestion() {
         listaProcesos = new ArrayList<>();
     }

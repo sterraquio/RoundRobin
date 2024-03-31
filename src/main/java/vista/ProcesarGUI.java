@@ -147,7 +147,7 @@ public class ProcesarGUI extends javax.swing.JFrame {
             }
         });
 
-        jSeleccionRafaga.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Rafaga 1", "Rafaga 2", "Rafaga 3", "Rafaga 4", "Rafaga 5", "Rafaga 6", "Rafaga 7", "Rafaga 8", "Rafaga 9", "Rafaga 10", "Rafaga 11", "Rafaga 12" }));
+        jSeleccionRafaga.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Rafaga 1", "Rafaga 2","Rafaga 3","Rafaga 4","Rafaga 5","Rafaga 6","Rafaga 7","Rafaga 8","Rafaga 9","Rafaga 10", "Rafaga 11", "Rafaga 12",}));
         jSeleccionRafaga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jSeleccionRafagaActionPerformed(evt);
@@ -305,7 +305,7 @@ public class ProcesarGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JProgressBar jBarraProgreso;
     private javax.swing.JScrollPane jScrollPane1;
-    javax.swing.JComboBox<String> jSeleccionRafaga;
+    public javax.swing.JComboBox<String> jSeleccionRafaga;
     private javax.swing.JLabel jbl_lisProcesos;
     private javax.swing.JLabel jbl_porcentaje;
     private javax.swing.JLabel jbl_proProceso;
