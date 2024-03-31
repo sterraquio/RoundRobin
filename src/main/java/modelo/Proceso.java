@@ -2,6 +2,7 @@ package modelo;
 
 public class Proceso {
 
+    //Atributos
     private String nombreProceso;
     private int numeroProceso;
     private int rafagaCPU;
@@ -17,6 +18,8 @@ public class Proceso {
     }
     
 
+    
+    
     public int getNumeroProceso() {
         return numeroProceso;
     }
@@ -89,5 +92,15 @@ public class Proceso {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    public int[] getQuantumDisponible() {
+        return QuantumDisponible;
+    }
+
+    public void setQuantumDisponible(int[] QuantumDisponible) {
+        this.QuantumDisponible = QuantumDisponible;
+    }
+    
+    
 }
 

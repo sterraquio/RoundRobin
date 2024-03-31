@@ -3,13 +3,16 @@ package vista;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.Proceso;
 
 /**
  *
  * @author camilotr
  */
 public class ProcesarGUI extends javax.swing.JFrame {
-
+    
+    private Proceso procesitoModelo;
+    
     /**
      * Creates new form ProcesarGUI
      */
@@ -41,8 +44,8 @@ public class ProcesarGUI extends javax.swing.JFrame {
         jtf_proProceso = new javax.swing.JTextField();
         jtf_porcentaje = new javax.swing.JTextField();
         jBarraProgreso = new javax.swing.JProgressBar();
-        jSRafaCPU = new javax.swing.JSpinner();
         jbt_salirPrograma = new javax.swing.JButton();
+        jSeleccionRafaga = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Round Robin");
@@ -53,7 +56,7 @@ public class ProcesarGUI extends javax.swing.JFrame {
 
         jlb_nombreP.setText("Nombre del proceso");
 
-        jbl_ragafaCPU.setText("Rafaga del CPU (Máximo 12)");
+        jbl_ragafaCPU.setText("Rafaga del CPU ");
 
         jtf_nombreP.setBackground(new java.awt.Color(225, 225, 237));
         jtf_nombreP.addActionListener(new java.awt.event.ActionListener() {
@@ -135,14 +138,19 @@ public class ProcesarGUI extends javax.swing.JFrame {
         jBarraProgreso.setForeground(new java.awt.Color(0, 255, 0));
         jBarraProgreso.setEnabled(false);
 
-        jSRafaCPU.setName(""); // NOI18N
-
         jbt_salirPrograma.setBackground(new java.awt.Color(255, 204, 204));
         jbt_salirPrograma.setForeground(new java.awt.Color(255, 0, 0));
         jbt_salirPrograma.setText("Salir del programa");
         jbt_salirPrograma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbt_salirProgramaActionPerformed(evt);
+            }
+        });
+
+        jSeleccionRafaga.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Rafaga 1", "Rafaga 2", "Rafaga 3", "Rafaga 4", "Rafaga 5", "Rafaga 6", "Rafaga 7", "Rafaga 8", "Rafaga 9", "Rafaga 10", "Rafaga 11", "Rafaga 12" }));
+        jSeleccionRafaga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jSeleccionRafagaActionPerformed(evt);
             }
         });
 
@@ -158,20 +166,10 @@ public class ProcesarGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jtf_nombreP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSRafaCPU, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeleccionRafaga, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45))
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jbl_proProceso)
-                        .addGap(50, 50, 50)
-                        .addComponent(jbl_porcentaje)
-                        .addGap(69, 69, 69)
-                        .addComponent(jbl_progreso))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(139, 139, 139)
                         .addComponent(jbt_agregar)
@@ -181,15 +179,25 @@ public class ProcesarGUI extends javax.swing.JFrame {
                         .addGap(175, 175, 175)
                         .addComponent(jbl_lisProcesos))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jbl_proProceso)
+                        .addGap(50, 50, 50)
+                        .addComponent(jbl_porcentaje)
+                        .addGap(69, 69, 69)
+                        .addComponent(jbl_progreso))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(208, 208, 208)
+                        .addComponent(jbt_salirPrograma))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jtf_proProceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46)
                         .addComponent(jtf_porcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jBarraProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(208, 208, 208)
-                        .addComponent(jbt_salirPrograma)))
+                        .addComponent(jBarraProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,10 +206,10 @@ public class ProcesarGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlb_nombreP)
                     .addComponent(jtf_nombreP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbl_ragafaCPU)
-                    .addComponent(jSRafaCPU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeleccionRafaga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbt_agregar)
@@ -237,7 +245,6 @@ public class ProcesarGUI extends javax.swing.JFrame {
     private void jbt_agregarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbt_agregarMousePressed
         // TODO add your handling code here:
         jtf_nombreP.setText("");
-        //jSRafaCPU
     }//GEN-LAST:event_jbt_agregarMousePressed
 
     private void jbt_salirProgramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_salirProgramaActionPerformed
@@ -255,6 +262,10 @@ public class ProcesarGUI extends javax.swing.JFrame {
     private void jbt_iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_iniciarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbt_iniciarActionPerformed
+
+    private void jSeleccionRafagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSeleccionRafagaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSeleccionRafagaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -293,8 +304,8 @@ public class ProcesarGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JProgressBar jBarraProgreso;
-    public javax.swing.JSpinner jSRafaCPU;
     private javax.swing.JScrollPane jScrollPane1;
+    javax.swing.JComboBox<String> jSeleccionRafaga;
     private javax.swing.JLabel jbl_lisProcesos;
     private javax.swing.JLabel jbl_porcentaje;
     private javax.swing.JLabel jbl_proProceso;

@@ -34,7 +34,7 @@ public void actionPerformed(ActionEvent e) {
 
         // Configurar los valores del nuevo proceso
         nuevoProceso.setNombreProceso(this.procesitoGUI.jtf_nombreP.getText());
-        nuevoProceso.setRafagaCPU((int) this.procesitoGUI.jSRafaCPU.getValue());
+        //nuevoProceso.setRafagaCPU((int) this.procesitoGUI.jSRafaCPU.getValue());
         // Aquí debes establecer el valor del quantum al proceso cuando se coloque sea el jtf o el js
 //        nuevoProceso.setQuantum(/* Obtiene el valor del quantum */);
 
@@ -46,7 +46,7 @@ public void actionPerformed(ActionEvent e) {
 
         // Limpiar campos después de agregar el proceso
         this.procesitoGUI.jtf_nombreP.setText("");
-        this.procesitoGUI.jSRafaCPU.setValue(0);
+        //this.procesitoGUI.jSRafaCPU.setValue(0);
 
         // Agregar el nuevo proceso a la tabla
         this.procesitoGestion.agregarProcesoATabla(modeloTabla, nuevoProceso);
