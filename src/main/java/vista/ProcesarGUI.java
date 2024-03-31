@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package vista;
 
 import java.awt.event.ActionEvent;
@@ -73,10 +70,20 @@ public class ProcesarGUI extends javax.swing.JFrame {
                 jbt_agregarMousePressed(evt);
             }
         });
+        jbt_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbt_agregarActionPerformed(evt);
+            }
+        });
 
         jbt_iniciar.setBackground(new java.awt.Color(251, 245, 245));
         jbt_iniciar.setForeground(new java.awt.Color(153, 0, 0));
         jbt_iniciar.setText("Iniciar");
+        jbt_iniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbt_iniciarActionPerformed(evt);
+            }
+        });
 
         jbl_lisProcesos.setFont(new java.awt.Font("Liberation Sans", 3, 24)); // NOI18N
         jbl_lisProcesos.setForeground(new java.awt.Color(0, 0, 153));
@@ -240,6 +247,14 @@ public class ProcesarGUI extends javax.swing.JFrame {
             dispose();
         });
     }//GEN-LAST:event_jbt_salirProgramaActionPerformed
+
+    private void jbt_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_agregarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbt_agregarActionPerformed
+
+    private void jbt_iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_iniciarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbt_iniciarActionPerformed
 
     /**
      * @param args the command line arguments

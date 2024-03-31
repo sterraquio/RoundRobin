@@ -19,29 +19,63 @@ public class Gestion {
         listaProcesos.add(procesito);
     }
 
-    
     //Esté método posiblemente vaya en el controlador
-    public void iniciarEjecucion() {
-        // Aquí implementa la lógica para ejecutar los procesos
-        // Puedes utilizar el algoritmo de Round Robin aquí
+public void iniciarEjecucion(int quantum) {
+    int tiempoActual = 0;
 
+    while (hayProcesosPendientes()) {
+        for (Proceso proceso : listaProcesos) {
+            if (proceso.getEstado().equals("Listo")) {
+                // Ejecutar una parte de la ráfaga según el quantum
+                int tiempoEjecutado = Math.min(quantum, proceso.getResiduoRafaga());
+                proceso.setResiduoRafaga(proceso.getResiduoRafaga() - tiempoEjecutado);
 
+                // Actualizar tiempo de ejecución total del proceso
+                proceso.setTiempoejecucion(proceso.getTiempoejecucion() + tiempoEjecutado);
+
+                // Si el proceso ha terminado su ráfaga
+                if (proceso.getResiduoRafaga() == 0) {
+                    proceso.setEstado("Terminado");
+                    proceso.setTiempoTerminacion(tiempoActual + tiempoEjecutado);
+                } else {
+                    proceso.setEstado("Listo");
+                }
+
+                // Actualizar tiempo de espera de otros procesos
+                for (Proceso otroProceso : listaProcesos) {
+                    if (otroProceso != proceso && otroProceso.getEstado().equals("Listo")) {
+                        otroProceso.setEstado("En espera");
+                        otroProceso.setTiempoEspera(otroProceso.getTiempoEspera() + tiempoEjecutado);
+                    }
+                }
+
+                // Actualizar tiempo actual
+                tiempoActual += tiempoEjecutado;
+            }
+        }
     }
-    
-public void agregarProcesoATabla(DefaultTableModel modeloTabla, Proceso proceso) {
-    Object[] fila = new Object[6];
-    fila[0] = proceso.getNumeroProceso(); // Ajusta el número de proceso según tu implementación
-    fila[1] = proceso.getNombreProceso();
-    fila[2] = proceso.getRafagaCPU();
-    fila[3] = proceso.getQuantum(); // Ajusta según corresponda
-    fila[4] = proceso.getResiduoRafaga(); // Ajusta según corresponda
-    fila[5] = proceso.getEstado(); // Ajusta según corresponda
-    modeloTabla.addRow(fila);
+}
+        
+public boolean hayProcesosPendientes() {
+    for (Proceso proceso : listaProcesos) {
+        if (proceso.getEstado().equals("Listo") || proceso.getEstado().equals("En espera")) {
+            return true;
+        }
+    }
+    return false;
 }
 
 
-
-
+    public void agregarProcesoATabla(DefaultTableModel modeloTabla, Proceso proceso) {
+        Object[] fila = new Object[6];
+        fila[0] = proceso.getNumeroProceso(); // Ajusta el número de proceso según tu implementación
+        fila[1] = proceso.getNombreProceso(); // Asigna el nombre del proceso a la segunda columna
+        fila[2] = proceso.getRafagaCPU();
+        fila[3] = proceso.getQuantum(); // Ajusta según corresponda
+        fila[4] = proceso.getResiduoRafaga(); // Ajusta según corresponda
+        fila[5] = proceso.getEstado(); // Ajusta según corresponda
+        modeloTabla.addRow(fila);
+    }
 
     public int calcularCantidadProcesosEjecutados() {
         int cantidadEjecutados = 0;
@@ -59,7 +93,7 @@ public void agregarProcesoATabla(DefaultTableModel modeloTabla, Proceso proceso)
             sumaTiemposTerminacion += procesito.getTiempoTerminacion();
         }
         return sumaTiemposTerminacion / listaProcesos.size();
-        
+
     }
 
     public double calcularTiempoPromedioEspera() {
@@ -69,13 +103,12 @@ public void agregarProcesoATabla(DefaultTableModel modeloTabla, Proceso proceso)
         }
         return sumaTiemposEspera / listaProcesos.size();
     }
-    
-    public int actualizarRafaga(int rafaga,int quantum){
+
+    public int actualizarRafaga(int rafaga, int quantum) {
         rafaga -= quantum;
         return rafaga;
-        
-    }
 
+    }
 
     //Getters y setters de lista
     public List<Proceso> getListaProcesos() {
@@ -86,9 +119,4 @@ public void agregarProcesoATabla(DefaultTableModel modeloTabla, Proceso proceso)
         this.listaProcesos = listaProcesos;
     }
 
-    
-
-    
 }
-
-

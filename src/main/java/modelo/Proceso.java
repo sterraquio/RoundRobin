@@ -5,7 +5,7 @@ public class Proceso {
     private String nombreProceso;
     private int numeroProceso;
     private int rafagaCPU;
-    private int quantum;
+    private int quantum = 1;
     private int tiempoEspera;
     private int tiempoTerminacion;
     private int tiempoejecucion;
