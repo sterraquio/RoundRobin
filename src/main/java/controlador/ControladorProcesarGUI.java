@@ -21,6 +21,7 @@ public class ControladorProcesarGUI implements ActionListener {
         this.procesitoGUI = new ProcesarGUI();//instancia de vista.procesarGUI
         this.procesitoGUI.setVisible(true);//hacer visible la intefaz
         this.procesitoGUI.jbt_agregar.addActionListener(this);//el escucha del boton agregar
+        this.procesitoGUI.jbt_iniciar.addActionListener(this);//el escuha del boton incio
         this.modeloTabla = (DefaultTableModel) this.procesitoGUI.jtb_lisProcesos.getModel(); // Obtener el modelo de la tabla
 
     }
@@ -53,6 +54,7 @@ public void actionPerformed(ActionEvent e) {
 
     }
     if (e.getSource() == this.procesitoGUI.jbt_iniciar) {
+        this.procesitoGUI.jbt_iniciar.addActionListener(this);
         System.out.println("Ejecutando...");
         
         // Obtener el valor del quantum desde la interfaz de usuario o de donde sea necesario

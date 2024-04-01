@@ -4,6 +4,7 @@ package vista;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.Proceso;
+import controlador.ControladorProcesarGUI;
 
 /**
  *
@@ -12,12 +13,14 @@ import modelo.Proceso;
 public class ProcesarGUI extends javax.swing.JFrame {
     
     private Proceso procesitoModelo;
+    private ControladorProcesarGUI controladorProcesarGUI;
     
     /**
      * Creates new form ProcesarGUI
      */
     public ProcesarGUI() {
         initComponents();
+        jbt_iniciar.addActionListener(controladorProcesarGUI);
     }
 
     /**
