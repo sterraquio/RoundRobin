@@ -1,5 +1,5 @@
 
-package Procesador;
+package vista;
 
 import static java.lang.Integer.parseInt;
 import java.util.logging.Level;
@@ -217,6 +217,8 @@ public class VistaProcesosGUI extends javax.swing.JFrame {
         jtf_tiempo = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jt_historial = new javax.swing.JTable();
+        jtf_tiempo1 = new javax.swing.JTextField();
+        jbl_tiempo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -262,16 +264,23 @@ public class VistaProcesosGUI extends javax.swing.JFrame {
             }
         ));
         jt_procesos.setToolTipText("");
+        jt_procesos.setEnabled(false);
         jScrollPane1.setViewportView(jt_procesos);
 
         jbl_proceso.setText("Proceso");
 
+        jtf_numero.setDisabledTextColor(new java.awt.Color(0, 0, 255));
+        jtf_numero.setEnabled(false);
+        jtf_numero.setSelectionColor(new java.awt.Color(255, 51, 51));
         jtf_numero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtf_numeroActionPerformed(evt);
             }
         });
 
+        jtf_porcentaje.setDisabledTextColor(new java.awt.Color(51, 51, 255));
+        jtf_porcentaje.setEnabled(false);
+        jtf_porcentaje.setSelectionColor(new java.awt.Color(255, 51, 51));
         jtf_porcentaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtf_porcentajeActionPerformed(evt);
@@ -281,18 +290,22 @@ public class VistaProcesosGUI extends javax.swing.JFrame {
         jbl_historial.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jbl_historial.setText("Historial de Procesos");
 
-        jbl_cantidad.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jbl_cantidad.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
         jbl_cantidad.setText("Cantidad de Procesos: ");
 
-        jbl_tiempo.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jbl_tiempo.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
         jbl_tiempo.setText("Tiempo de Procesos: ");
 
+        jtf_cantidad.setDisabledTextColor(new java.awt.Color(0, 0, 255));
+        jtf_cantidad.setEnabled(false);
         jtf_cantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtf_cantidadActionPerformed(evt);
             }
         });
 
+        jtf_tiempo.setDisabledTextColor(new java.awt.Color(0, 0, 255));
+        jtf_tiempo.setEnabled(false);
         jtf_tiempo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtf_tiempoActionPerformed(evt);
@@ -307,7 +320,19 @@ public class VistaProcesosGUI extends javax.swing.JFrame {
                 "# Proceso", "Rafaga", "Quantum", "Tiempo real", "Estado"
             }
         ));
+        jt_historial.setEnabled(false);
         jScrollPane2.setViewportView(jt_historial);
+
+        jtf_tiempo1.setDisabledTextColor(new java.awt.Color(0, 0, 255));
+        jtf_tiempo1.setEnabled(false);
+        jtf_tiempo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtf_tiempo1ActionPerformed(evt);
+            }
+        });
+
+        jbl_tiempo1.setFont(new java.awt.Font("sansserif", 0, 12)); // NOI18N
+        jbl_tiempo1.setText("Tiempo Promedio");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -343,27 +368,27 @@ public class VistaProcesosGUI extends javax.swing.JFrame {
                                 .addComponent(jtf_porcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jpb_proceso, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(146, 146, 146)
+                                .addComponent(jbl_historial))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(55, 55, 55)
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(85, 85, 85)
-                                        .addComponent(jbl_historial))
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jbl_cantidad)
-                                            .addComponent(jbl_tiempo))
+                                            .addComponent(jbl_tiempo)
+                                            .addComponent(jbl_tiempo1))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jtf_tiempo1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jtf_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jtf_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                     .addComponent(jbl_proceso))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -381,10 +406,14 @@ public class VistaProcesosGUI extends javax.swing.JFrame {
                             .addComponent(jtf_rafaga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jbtn_iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jbl_lista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jbl_lista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jbl_tiempo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jtf_tiempo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jbl_historial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbl_historial)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jbl_cantidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -392,7 +421,8 @@ public class VistaProcesosGUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jbl_tiempo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jtf_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jtf_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -453,6 +483,10 @@ public class VistaProcesosGUI extends javax.swing.JFrame {
         Iniciar();
     }//GEN-LAST:event_jbtn_iniciarActionPerformed
 
+    private void jtf_tiempo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_tiempo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtf_tiempo1ActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -463,6 +497,7 @@ public class VistaProcesosGUI extends javax.swing.JFrame {
     public javax.swing.JLabel jbl_lista;
     public javax.swing.JLabel jbl_proceso;
     public javax.swing.JLabel jbl_tiempo;
+    public javax.swing.JLabel jbl_tiempo1;
     public javax.swing.JButton jbtn_agregar;
     public javax.swing.JButton jbtn_iniciar;
     public javax.swing.JLabel jlb_quantum;
@@ -476,6 +511,7 @@ public class VistaProcesosGUI extends javax.swing.JFrame {
     public javax.swing.JTextField jtf_quantum;
     public javax.swing.JTextField jtf_rafaga;
     public javax.swing.JTextField jtf_tiempo;
+    public javax.swing.JTextField jtf_tiempo1;
     // End of variables declaration//GEN-END:variables
 
 

@@ -1,7 +1,7 @@
 
 package Main;
 
-import Procesador.VistaProcesosGUI;
+import vista.VistaProcesosGUI;
 
 public class Principal {
     public static void main (String [] args){
