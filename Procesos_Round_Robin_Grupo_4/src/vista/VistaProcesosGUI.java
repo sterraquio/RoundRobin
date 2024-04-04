@@ -145,6 +145,7 @@ public class VistaProcesosGUI extends javax.swing.JFrame {
         jpb_proceso.repaint();
     }
 
+    //Al acabar el proceso se hace esto
     public void Borrar(int c) {
         jt_procesos.setValueAt(0, c, 0);
         jt_procesos.setValueAt("0", c, 1);
