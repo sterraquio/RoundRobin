@@ -159,9 +159,25 @@ public class Procesar extends javax.swing.JFrame {
             new String [] {
                 "Orde llegada", "Rafaga", "Quantum", "ResiduoRafaga", "Estado", "Tiempo llegada"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTIngreso.setEnabled(false);
         jScrollPane3.setViewportView(jTIngreso);
+        if (jTIngreso.getColumnModel().getColumnCount() > 0) {
+            jTIngreso.getColumnModel().getColumn(0).setResizable(false);
+            jTIngreso.getColumnModel().getColumn(1).setResizable(false);
+            jTIngreso.getColumnModel().getColumn(2).setResizable(false);
+            jTIngreso.getColumnModel().getColumn(3).setResizable(false);
+            jTIngreso.getColumnModel().getColumn(4).setResizable(false);
+            jTIngreso.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         jTFCapturaQuantum.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jTFCapturaQuantum.addActionListener(new java.awt.event.ActionListener() {
