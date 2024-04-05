@@ -558,6 +558,9 @@ public void Informe(int c){
     miTabla[2]= Quantum;
     miTabla[3]= TiempoProceso+" Segundos";
     miTabla[4]= "Terminado";
+    miTabla[5]= "ERROR";
+    miTabla[6]= "ERROR";
+    miTabla[7]= "ERROR";
     modelo2.addRow(miTabla);
     jTFinal.setModel(modelo2);
 
