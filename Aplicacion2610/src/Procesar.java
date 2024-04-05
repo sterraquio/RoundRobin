@@ -247,9 +247,27 @@ public class Procesar extends javax.swing.JFrame {
             new String [] {
                 "# de orden de llegada", "Rafaga", "Quantum", "Tiempo terminación", "Estado", "Tiempo Llegada", "Tiempo espera", "Tiempo proceso maquina"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTFinal.setEnabled(false);
         jScrollPane4.setViewportView(jTFinal);
+        if (jTFinal.getColumnModel().getColumnCount() > 0) {
+            jTFinal.getColumnModel().getColumn(0).setResizable(false);
+            jTFinal.getColumnModel().getColumn(1).setResizable(false);
+            jTFinal.getColumnModel().getColumn(2).setResizable(false);
+            jTFinal.getColumnModel().getColumn(3).setResizable(false);
+            jTFinal.getColumnModel().getColumn(4).setResizable(false);
+            jTFinal.getColumnModel().getColumn(5).setResizable(false);
+            jTFinal.getColumnModel().getColumn(6).setResizable(false);
+            jTFinal.getColumnModel().getColumn(7).setResizable(false);
+        }
 
         jLabel7.setText("Proceso");
 
@@ -606,7 +624,7 @@ public class Procesar extends javax.swing.JFrame {
         miTabla[4] = "Terminado";
         miTabla[5] = segundos + " segundos";
         miTabla[6] = tiempoEspera + " segundos";
-        miTabla[7] = "ERROR";
+        miTabla[7] = Rafaga + segundos+ "segundos bro";
         modelo2.addRow(miTabla);
         jTFinal.setModel(modelo2);
 
