@@ -30,6 +30,7 @@ public class Procesar extends javax.swing.JFrame {
     int ValorBarra;//Carga el progreso de la Barra
     int CantidadProcesos;//Número de procesos terminados
     int tiempoLlegada=0;
+    int tiempoEspera=0;
     Instant tiempoRealInicio;
     
     /**
@@ -38,9 +39,9 @@ public class Procesar extends javax.swing.JFrame {
     
     public Procesar() {
         initComponents();
-        jTIngreso.setBackground(Color.CYAN);
-        jTIngreso.setForeground(Color.blue);
-        jTFinal.setBackground(Color.GREEN);
+        jTIngreso.setBackground(Color.BLACK);
+        jTIngreso.setForeground(Color.WHITE);
+        jTFinal.setBackground(Color.yellow);
         //jTFinal.setBackground(Color.red);
         jTFCapturaQuantum.grabFocus();
         
@@ -221,7 +222,7 @@ public class Procesar extends javax.swing.JFrame {
 
             },
             new String [] {
-                "# de orden de llegada", "Rafaga", "Quantum", "Tiempo terminación", "Estado", "Tiempo Llegada", "Tiempo espera", "Tiempo proceso"
+                "# de orden de llegada", "Rafaga", "Quantum", "Tiempo terminación", "Estado", "Tiempo Llegada", "Tiempo espera", "Tiempo proceso maquina"
             }
         ));
         jTFinal.setEnabled(false);
@@ -276,7 +277,7 @@ public class Procesar extends javax.swing.JFrame {
                                         .addGap(22, 22, 22)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 152, Short.MAX_VALUE))
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLCantidadProcesos, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
@@ -473,6 +474,7 @@ public class Procesar extends javax.swing.JFrame {
                 if(ResiduoRafaga!=0 && ResiduoRafaga>Quantum){ //Ejecutando Procesos
                     for(int c=1; c<=Quantum; c++){
                         jTIngreso.setValueAt("Procesando",i,4);
+                        tiempoEspera= TiempoProceso-2;
                         ResiduoRafaga--;
                         Barra(Rafaga,ResiduoRafaga);
                         Pintar();
@@ -579,7 +581,7 @@ public void Informe(int c){
     miTabla[3]= TiempoProceso+" Segundos";
     miTabla[4]= "Terminado";
     miTabla[5]= tiempoLlegada+" segundos";
-    miTabla[6]= "ERROR";
+    miTabla[6]= tiempoEspera+" segundos";
     miTabla[7]= "ERROR";
     modelo2.addRow(miTabla);
     jTFinal.setModel(modelo2);
@@ -595,6 +597,7 @@ public void Borrar(int c){ //Elimina los registros de la tabla procesos
     jTIngreso.setValueAt("0",c,2);
     jTIngreso.setValueAt("0",c,3);
     jTIngreso.setValueAt("Terminado",c,4);
+    jTIngreso.setValueAt("0",c,5);
 }
 
    public void Barra(int rafaga, int residuo){ //Calcula porcentaje de la barra y su progreso
