@@ -552,7 +552,7 @@ public void Ingresar(){ //Ingresar proceso a la tabla
 public void Informe(int c){
     DefaultTableModel modelo2 = (DefaultTableModel) jTFinal.getModel();
 
-    Object[] miTabla= new Object[5];
+    Object[] miTabla= new Object[8];
     miTabla[0]= c+1;
     miTabla[1]= Rafaga;
     miTabla[2]= Quantum;
