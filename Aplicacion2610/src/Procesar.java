@@ -46,7 +46,7 @@ public class Procesar extends javax.swing.JFrame {
         //jTFinal.setBackground(Color.red);
         jTFCapturaQuantum.grabFocus();
 
-        tiempo = new Timer(1000, (ActionEvent e) -> {
+        tiempo = new Timer(1200, (ActionEvent e) -> {
             iniciarConteo();
         });
 
@@ -558,7 +558,7 @@ public class Procesar extends javax.swing.JFrame {
 
     public void Dormir() {
         try {
-            Thread.sleep(1000); //Dormir sistema
+            Thread.sleep(700); //Dormir sistema
         } catch (InterruptedException ex) {
             Logger.getLogger(Procesar.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -604,7 +604,7 @@ public class Procesar extends javax.swing.JFrame {
         miTabla[2] = Quantum;
         miTabla[3] = TiempoProceso + " Segundos";
         miTabla[4] = "Terminado";
-        miTabla[5] = iniciarConteo() + " segundos";
+        miTabla[5] = segundos + " segundos";
         miTabla[6] = tiempoEspera + " segundos";
         miTabla[7] = "ERROR";
         modelo2.addRow(miTabla);
