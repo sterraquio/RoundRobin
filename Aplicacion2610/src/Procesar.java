@@ -558,7 +558,7 @@ public class Procesar extends javax.swing.JFrame {
 
     public void Dormir() {
         try {
-            Thread.sleep(700); //Dormir sistema
+            Thread.sleep(1000); //Dormir sistema
         } catch (InterruptedException ex) {
             Logger.getLogger(Procesar.class.getName()).log(Level.SEVERE, null, ex);
         }
