@@ -125,7 +125,7 @@
                                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="jBIniciar" max="32767" attributes="0"/>
-                                          <Component id="jBAgregar" pref="81" max="32767" attributes="0"/>
+                                          <Component id="jBAgregar" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -224,6 +224,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBAgregarActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane3">
       <AuxValues>

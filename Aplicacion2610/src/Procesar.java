@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
 import static java.lang.Integer.parseInt;
 import java.util.logging.Level;
@@ -7,36 +8,36 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import java.time.Duration;
 import java.time.Instant;
+import javax.swing.Timer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Dennis
  */
 public class Procesar extends javax.swing.JFrame {
 
-    
     int Contador;//Contador del total de procesos que se van ingresando
     int NProceso;//Carga el número de procesos ejecutándose
-    int Rafaga=0;//Carga la ráfaga en ejecución
-    int Quantum=0;//Carga el quantum en ejecución
-    int ResiduoRafaga=0;//Carga el residuo en ejecución
-    int TiempoProceso=0;//Carga el tiempo que se dura procesando
+    int Rafaga = 0;//Carga la ráfaga en ejecución
+    int Quantum = 0;//Carga el quantum en ejecución
+    int ResiduoRafaga = 0;//Carga el residuo en ejecución
+    int TiempoProceso = 0;//Carga el tiempo que se dura procesando
     int ValorBarra;//Carga el progreso de la Barra
     int CantidadProcesos;//Número de procesos terminados
-    int tiempoLlegada=0;
-    int tiempoEspera=0;
+    int tiempoLlegada = 0;
+    int tiempoEspera = 0;
     Instant tiempoRealInicio;
-    
+    Timer tiempo;
+    int minutos = 0, segundos = -1;
+
     /**
      * Creates new form Procesar
      */
-    
     public Procesar() {
         initComponents();
         jTIngreso.setBackground(Color.BLACK);
@@ -44,15 +45,37 @@ public class Procesar extends javax.swing.JFrame {
         jTFinal.setBackground(Color.yellow);
         //jTFinal.setBackground(Color.red);
         jTFCapturaQuantum.grabFocus();
+
+        tiempo = new Timer(1000, (ActionEvent e) -> {
+            iniciarConteo();
+        });
+
+    }
+
+    private String iniciarConteo() {
+        segundos++;
         
+        if (segundos == 60) {
+            segundos = 0;
+            minutos++;
+
+        
+        }
+        if (minutos == 60) {
+            minutos = 0;
+             
+        }
+        
+        return ""+minutos+":"+segundos;
     }
 
     public long obtenerTiempoRealTranscurrido() {
         Instant tiempoActual = Instant.now(); // Obtener el tiempo actual
         Duration duracion = Duration.between(tiempoRealInicio, tiempoActual); // Calcular la diferencia entre los Instant
         long tiempoTranscurridoSegundos = duracion.getSeconds(); // Obtener los segundos de la duración
-        return (int)tiempoTranscurridoSegundos; // Retornar el tiempo transcurrido en segundos
+        return (int) tiempoTranscurridoSegundos; // Retornar el tiempo transcurrido en segundos
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -305,7 +328,7 @@ public class Procesar extends javax.swing.JFrame {
                                         .addGap(53, 53, 53)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jBIniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jBAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)))
+                                            .addComponent(jBAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addComponent(jLabel7))
                                 .addGap(0, 533, Short.MAX_VALUE)))
                         .addContainerGap())
@@ -371,20 +394,22 @@ public class Procesar extends javax.swing.JFrame {
 
     private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
         // TODO add your handling code here:
-        
-        if((Integer.parseInt(jTFCapturaRafaga.getText()))<=12){
+
+        if ((Integer.parseInt(jTFCapturaRafaga.getText())) <= 12) {
             //tiempoRealInicio = Instant.now();
-            
+           
+
             Ingresar();
             jTFCapturaQuantum.setEditable(false);
-        }
-        else{
+        } else {
             JOptionPane.showMessageDialog(null, "Las Rafagas no pueden ser mayores de 12 y minimo 1");
             jTFCapturaRafaga.setText(null);
-            jTFCapturaRafaga.grabFocus();  
+            jTFCapturaRafaga.grabFocus();
         }
-            tiempoLlegada =(int)obtenerTiempoRealTranscurrido();
         
+        tiempo.start();
+        tiempoLlegada = (int) obtenerTiempoRealTranscurrido();
+
     }//GEN-LAST:event_jBAgregarActionPerformed
 
     private void jTFCapturaRafagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFCapturaRafagaActionPerformed
@@ -459,175 +484,171 @@ public class Procesar extends javax.swing.JFrame {
             }
         });
     }
-    
-    
-    
-    private class Hilo implements Runnable{ //Objeto de tipo Hilo con extension ejectubale
-    @Override
-    public void run(){
-        int estado=1; //Estado de while que indica si se puede seguir o no
-        int i=0; // contador de while
-        
-        while(estado!=0){
-            while(i<Contador){ //Recorrer las filas
-                Cargar(i);
-                if(ResiduoRafaga!=0 && ResiduoRafaga>Quantum){ //Ejecutando Procesos
-                    for(int c=1; c<=Quantum; c++){
-                        jTIngreso.setValueAt("Procesando",i,4);
-                        ResiduoRafaga--;
-                        Barra(Rafaga,ResiduoRafaga);
-                        Pintar();
-                        jTIngreso.setValueAt(String.valueOf(ResiduoRafaga),i,3);
-                        TiempoProceso++;
-                        Dormir();
-                    }
-                    tiempoEspera= TiempoProceso-tiempoLlegada;
-                    jTIngreso.setValueAt("Espera",i,4);
-                    if(ResiduoRafaga==0){
-                        jTIngreso.setValueAt("Terminado",i,4);
-                        Pintar();
-                        Informe(i);
-                        Borrar(i);
-                        jPBEstado.setValue(0);
-                    }
-            }else{//Cuando el quantum es menor que la rafaga
-                if(ResiduoRafaga>0 && Quantum!=0){
-                    while(ResiduoRafaga>0){
-                        jTIngreso.setValueAt("Procesando",i,4);
-                        ResiduoRafaga--;
-                        Barra(Rafaga,ResiduoRafaga);
-                        Pintar();
-                        jTIngreso.setValueAt(String.valueOf(ResiduoRafaga),i,3);
-                        TiempoProceso++;
-                        Dormir();
-                    }
-                    jTIngreso.setValueAt("Espera",i,4);
-                    if(ResiduoRafaga==0 && Quantum!=0){
-                        jTIngreso.setValueAt("Terminado",i,4);
-                        Pintar();
-                        Informe(i);
-                        Borrar(i);
-                        jPBEstado.setValue(0);
-                     }
-                    }else{
-                        if(ResiduoRafaga==0 && Quantum!=0){
-                            jTIngreso.setValueAt("Terminado",i,4);
+
+    private class Hilo implements Runnable { //Objeto de tipo Hilo con extension ejectubale
+
+        @Override
+        public void run() {
+            int estado = 1; //Estado de while que indica si se puede seguir o no
+            int i = 0; // contador de while
+
+            while (estado != 0) {
+                while (i < Contador) { //Recorrer las filas
+                    Cargar(i);
+                    if (ResiduoRafaga != 0 && ResiduoRafaga > Quantum) { //Ejecutando Procesos
+                        for (int c = 1; c <= Quantum; c++) {
+                            jTIngreso.setValueAt("Procesando", i, 4);
+                            ResiduoRafaga--;
+                            Barra(Rafaga, ResiduoRafaga);
+                            Pintar();
+                            jTIngreso.setValueAt(String.valueOf(ResiduoRafaga), i, 3);
+                            TiempoProceso++;
+                            Dormir();
+                        }
+                        tiempoEspera = TiempoProceso - tiempoLlegada;
+                        jTIngreso.setValueAt("Espera", i, 4);
+                        if (ResiduoRafaga == 0) {
+                            jTIngreso.setValueAt("Terminado", i, 4);
                             Pintar();
                             Informe(i);
                             Borrar(i);
                             jPBEstado.setValue(0);
                         }
+                    } else {//Cuando el quantum es menor que la rafaga
+                        if (ResiduoRafaga > 0 && Quantum != 0) {
+                            while (ResiduoRafaga > 0) {
+                                jTIngreso.setValueAt("Procesando", i, 4);
+                                ResiduoRafaga--;
+                                Barra(Rafaga, ResiduoRafaga);
+                                Pintar();
+                                jTIngreso.setValueAt(String.valueOf(ResiduoRafaga), i, 3);
+                                TiempoProceso++;
+                                Dormir();
+                            }
+                            jTIngreso.setValueAt("Espera", i, 4);
+                            if (ResiduoRafaga == 0 && Quantum != 0) {
+                                jTIngreso.setValueAt("Terminado", i, 4);
+                                Pintar();
+                                Informe(i);
+                                Borrar(i);
+                                jPBEstado.setValue(0);
+                            }
+                        } else {
+                            if (ResiduoRafaga == 0 && Quantum != 0) {
+                                jTIngreso.setValueAt("Terminado", i, 4);
+                                Pintar();
+                                Informe(i);
+                                Borrar(i);
+                                jPBEstado.setValue(0);
+                            }
+                        }
                     }
+                    jLNumeroProceso.setText(String.valueOf("")); //Borrar contenido
+                    jLPorcentajeProceso.setText(String.valueOf(""));
+                    i++;
                 }
+                i = 0;
                 jLNumeroProceso.setText(String.valueOf("")); //Borrar contenido
                 jLPorcentajeProceso.setText(String.valueOf(""));
-                i++;
+
             }
-            i=0;
-            jLNumeroProceso.setText(String.valueOf("")); //Borrar contenido
-            jLPorcentajeProceso.setText(String.valueOf(""));
-            
+
         }
-            
-    }
-}
-
-public void Dormir(){
-    try{
-        Thread.sleep(700); //Dormir sistema
-    }catch(InterruptedException ex){
-        Logger.getLogger(Procesar.class.getName()).log(Level.SEVERE,null,ex);
     }
 
-}
+    public void Dormir() {
+        try {
+            Thread.sleep(700); //Dormir sistema
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Procesar.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-public void Cargar(int i){ //Carga los valores de la Tabla
-    NProceso=(int)jTIngreso.getValueAt(i,0);
-    Rafaga=parseInt((String)(jTIngreso.getValueAt(i,1)));
-    Quantum=parseInt((String)(jTIngreso.getValueAt(i,2)));
-    ResiduoRafaga=parseInt((String)(jTIngreso.getValueAt(i,3)));
-    if(NProceso>0){
-        jLNumeroProceso.setText(String.valueOf(NProceso));
     }
-}
 
-public void Ingresar(){ //Ingresar proceso a la tabla
-    DefaultTableModel modelo=(DefaultTableModel) jTIngreso.getModel();
+    public void Cargar(int i) { //Carga los valores de la Tabla
+        NProceso = (int) jTIngreso.getValueAt(i, 0);
+        Rafaga = parseInt((String) (jTIngreso.getValueAt(i, 1)));
+        Quantum = parseInt((String) (jTIngreso.getValueAt(i, 2)));
+        ResiduoRafaga = parseInt((String) (jTIngreso.getValueAt(i, 3)));
+        if (NProceso > 0) {
+            jLNumeroProceso.setText(String.valueOf(NProceso));
+        }
+    }
 
-    Contador ++;
-    Object[] miTabla = new Object[6];
-    miTabla[0]= Contador;
-    miTabla[1]= jTFCapturaRafaga.getText();
-    miTabla[2]= jTFCapturaQuantum.getText();
-    miTabla[3]= jTFCapturaRafaga.getText();
-    miTabla[4]= "Listo";
-    miTabla[5]= tiempoLlegada+" segundos";
-    
-    modelo.addRow(miTabla);
-    jTIngreso.setModel(modelo);
-    // Limpia el recuadro para rafaga
-    jTFCapturaRafaga.setText(null);
-    //Manda focus al espacio para rafaga
-    jTFCapturaRafaga.grabFocus();
-}
+    public void Ingresar() { //Ingresar proceso a la tabla
+        DefaultTableModel modelo = (DefaultTableModel) jTIngreso.getModel();
 
-public void Informe(int c){
-    DefaultTableModel modelo2 = (DefaultTableModel) jTFinal.getModel();
+        Contador++;
+        Object[] miTabla = new Object[6];
+        miTabla[0] = Contador;
+        miTabla[1] = jTFCapturaRafaga.getText();
+        miTabla[2] = jTFCapturaQuantum.getText();
+        miTabla[3] = jTFCapturaRafaga.getText();
+        miTabla[4] = "Listo";
+        miTabla[5] = iniciarConteo() + " segundos";
 
-    Object[] miTabla= new Object[8];
-    miTabla[0]= c+1;
-    miTabla[1]= Rafaga;
-    miTabla[2]= Quantum;
-    miTabla[3]= TiempoProceso+" Segundos";
-    miTabla[4]= "Terminado";
-    miTabla[5]= tiempoLlegada+" segundos";
-    miTabla[6]= tiempoEspera+" segundos";
-    miTabla[7]= "ERROR";
-    modelo2.addRow(miTabla);
-    jTFinal.setModel(modelo2);
+        modelo.addRow(miTabla);
+        jTIngreso.setModel(modelo);
+        // Limpia el recuadro para rafaga
+        jTFCapturaRafaga.setText(null);
+        //Manda focus al espacio para rafaga
+        jTFCapturaRafaga.grabFocus();
+    }
 
-    CantidadProcesos++;
-    jLCantidadProcesos.setText(String.valueOf(CantidadProcesos+" Terminados"));
-    jLCantidadTiempo.setText(String.valueOf(TiempoProceso+" Segundos"));
-}
+    public void Informe(int c) {
+        DefaultTableModel modelo2 = (DefaultTableModel) jTFinal.getModel();
 
-public void Borrar(int c){ //Elimina los registros de la tabla procesos
-    jTIngreso.setValueAt(0,c,0);
-    jTIngreso.setValueAt("0",c,1);
-    jTIngreso.setValueAt("0",c,2);
-    jTIngreso.setValueAt("0",c,3);
-    jTIngreso.setValueAt("Terminado",c,4);
-    jTIngreso.setValueAt("0",c,5);
-}
+        Object[] miTabla = new Object[8];
+        miTabla[0] = c + 1;
+        miTabla[1] = Rafaga;
+        miTabla[2] = Quantum;
+        miTabla[3] = TiempoProceso + " Segundos";
+        miTabla[4] = "Terminado";
+        miTabla[5] = iniciarConteo() + " segundos";
+        miTabla[6] = tiempoEspera + " segundos";
+        miTabla[7] = "ERROR";
+        modelo2.addRow(miTabla);
+        jTFinal.setModel(modelo2);
 
-   public void Barra(int rafaga, int residuo){ //Calcula porcentaje de la barra y su progreso
-        int Rafaga=rafaga;
-        int valor=100/rafaga;
-        int porcentaje=100-(valor*residuo);
-        ValorBarra=porcentaje;
-        jLPorcentajeProceso.setText(String.valueOf(ValorBarra+"%"));
-}
+        CantidadProcesos++;
+        jLCantidadProcesos.setText(String.valueOf(CantidadProcesos + " Terminados"));
+        jLCantidadTiempo.setText(String.valueOf(TiempoProceso + " Segundos"));
+    }
 
-    public void Pintar(){
+    public void Borrar(int c) { //Elimina los registros de la tabla procesos
+        jTIngreso.setValueAt(0, c, 0);
+        jTIngreso.setValueAt("0", c, 1);
+        jTIngreso.setValueAt("0", c, 2);
+        jTIngreso.setValueAt("0", c, 3);
+        jTIngreso.setValueAt("Terminado", c, 4);
+        jTIngreso.setValueAt("0", c, 5);
+    }
+
+    public void Barra(int rafaga, int residuo) { //Calcula porcentaje de la barra y su progreso
+        int Rafaga = rafaga;
+        int valor = 100 / rafaga;
+        int porcentaje = 100 - (valor * residuo);
+        ValorBarra = porcentaje;
+        jLPorcentajeProceso.setText(String.valueOf(ValorBarra + "%"));
+    }
+
+    public void Pintar() {
         jPBEstado.setValue(ValorBarra);
         jPBEstado.repaint();
     }
 
-    public void Iniciar(){ //Inicia la secuencia de procesos
+    public void Iniciar() { //Inicia la secuencia de procesos
         jLabel2.setVisible(false);
         jLabel1.setVisible(false);
         jTFCapturaRafaga.setVisible(false);
         jTFCapturaQuantum.setVisible(false);
         jBAgregar.setVisible(false);
         jBIniciar.setVisible(false);
-}
-    
-    
-    
-    
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBAgregar;
+    public javax.swing.JButton jBAgregar;
     private javax.swing.JButton jBIniciar;
     private javax.swing.JTextField jLCantidadProcesos;
     private javax.swing.JTextField jLCantidadProcesos1;
