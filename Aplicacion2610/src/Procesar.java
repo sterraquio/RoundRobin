@@ -5,6 +5,8 @@ import static java.lang.Integer.parseInt;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import java.time.Duration;
+import java.time.Instant;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -27,6 +29,7 @@ public class Procesar extends javax.swing.JFrame {
     int TiempoProceso=0;//Carga el tiempo que se dura procesando
     int ValorBarra;//Carga el progreso de la Barra
     int CantidadProcesos;//Número de procesos terminados
+    Instant tiempoRealInicio;
     
     /**
      * Creates new form Procesar
@@ -39,8 +42,15 @@ public class Procesar extends javax.swing.JFrame {
         jTFinal.setBackground(Color.GREEN);
         //jTFinal.setBackground(Color.red);
         jTFCapturaQuantum.grabFocus();
+        tiempoRealInicio = Instant.now();
     }
 
+    public long obtenerTiempoRealTranscurrido() {
+        Instant tiempoActual = Instant.now(); // Obtener el tiempo actual
+        Duration duracion = Duration.between(tiempoRealInicio, tiempoActual); // Calcular la diferencia entre los Instant
+        long tiempoTranscurridoSegundos = duracion.getSeconds(); // Obtener los segundos de la duración
+        return (int)tiempoTranscurridoSegundos; // Retornar el tiempo transcurrido en segundos
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
