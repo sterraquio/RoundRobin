@@ -29,6 +29,7 @@ public class Procesar extends javax.swing.JFrame {
     int TiempoProceso=0;//Carga el tiempo que se dura procesando
     int ValorBarra;//Carga el progreso de la Barra
     int CantidadProcesos;//Número de procesos terminados
+    int tiempoLlegada=0;
     Instant tiempoRealInicio;
     
     /**
@@ -42,7 +43,7 @@ public class Procesar extends javax.swing.JFrame {
         jTFinal.setBackground(Color.GREEN);
         //jTFinal.setBackground(Color.red);
         jTFCapturaQuantum.grabFocus();
-        tiempoRealInicio = Instant.now();
+        
     }
 
     public long obtenerTiempoRealTranscurrido() {
@@ -132,9 +133,10 @@ public class Procesar extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Orde llegada", "Rafaga", "Quantum", "ResiduoRafaga", "Estado"
+                "Orde llegada", "Rafaga", "Quantum", "ResiduoRafaga", "Estado", "Tiempo llegada"
             }
         ));
+        jTIngreso.setEnabled(false);
         jScrollPane3.setViewportView(jTIngreso);
 
         jTFCapturaQuantum.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -222,6 +224,7 @@ public class Procesar extends javax.swing.JFrame {
                 "# de orden de llegada", "Rafaga", "Quantum", "Tiempo terminación", "Estado", "Tiempo Llegada", "Tiempo espera", "Tiempo proceso"
             }
         ));
+        jTFinal.setEnabled(false);
         jScrollPane4.setViewportView(jTFinal);
 
         jLabel7.setText("Proceso");
@@ -283,7 +286,7 @@ public class Procesar extends javax.swing.JFrame {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(jLCantidadTiempo1, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
+                                                .addComponent(jLCantidadTiempo1, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addGap(18, 18, 18)
@@ -367,14 +370,19 @@ public class Procesar extends javax.swing.JFrame {
 
     private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
         // TODO add your handling code here:
+        
         if((Integer.parseInt(jTFCapturaRafaga.getText()))<=12){
+            //tiempoRealInicio = Instant.now();
+            
             Ingresar();
             jTFCapturaQuantum.setEditable(false);
-        }else{
+        }
+        else{
             JOptionPane.showMessageDialog(null, "Las Rafagas no pueden ser mayores de 12 y minimo 1");
             jTFCapturaRafaga.setText(null);
             jTFCapturaRafaga.grabFocus();  
         }
+            tiempoLlegada =(int)obtenerTiempoRealTranscurrido();
         
     }//GEN-LAST:event_jBAgregarActionPerformed
 
@@ -545,12 +553,14 @@ public void Ingresar(){ //Ingresar proceso a la tabla
     DefaultTableModel modelo=(DefaultTableModel) jTIngreso.getModel();
 
     Contador ++;
-    Object[] miTabla = new Object[5];
+    Object[] miTabla = new Object[6];
     miTabla[0]= Contador;
     miTabla[1]= jTFCapturaRafaga.getText();
     miTabla[2]= jTFCapturaQuantum.getText();
     miTabla[3]= jTFCapturaRafaga.getText();
     miTabla[4]= "Listo";
+    miTabla[5]= tiempoLlegada+" segundos";
+    
     modelo.addRow(miTabla);
     jTIngreso.setModel(modelo);
     // Limpia el recuadro para rafaga
@@ -568,7 +578,7 @@ public void Informe(int c){
     miTabla[2]= Quantum;
     miTabla[3]= TiempoProceso+" Segundos";
     miTabla[4]= "Terminado";
-    miTabla[5]= "ERROR";
+    miTabla[5]= tiempoLlegada+" segundos";
     miTabla[6]= "ERROR";
     miTabla[7]= "ERROR";
     modelo2.addRow(miTabla);

@@ -99,7 +99,7 @@
                                           <Group type="102" attributes="0">
                                               <Component id="jLabel8" pref="348" max="32767" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jLCantidadTiempo1" pref="143" max="32767" attributes="0"/>
+                                              <Component id="jLCantidadTiempo1" pref="144" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
                                               <Component id="jLabel9" max="32767" attributes="0"/>
@@ -235,12 +235,13 @@
         <Component class="javax.swing.JTable" name="jTIngreso">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="5" rowCount="0">
+              <Table columnCount="6" rowCount="0">
                 <Column editable="true" title="Orde llegada" type="java.lang.Object"/>
                 <Column editable="true" title="Rafaga" type="java.lang.Object"/>
                 <Column editable="true" title="Quantum" type="java.lang.Object"/>
                 <Column editable="true" title="ResiduoRafaga" type="java.lang.Object"/>
                 <Column editable="true" title="Estado" type="java.lang.Object"/>
+                <Column editable="true" title="Tiempo llegada" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -270,8 +271,14 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
               </TableColumnModel>
             </Property>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
@@ -488,6 +495,7 @@
                 </Column>
               </TableColumnModel>
             </Property>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
