@@ -474,7 +474,6 @@ public class Procesar extends javax.swing.JFrame {
                 if(ResiduoRafaga!=0 && ResiduoRafaga>Quantum){ //Ejecutando Procesos
                     for(int c=1; c<=Quantum; c++){
                         jTIngreso.setValueAt("Procesando",i,4);
-                        tiempoEspera= TiempoProceso-2;
                         ResiduoRafaga--;
                         Barra(Rafaga,ResiduoRafaga);
                         Pintar();
@@ -482,6 +481,7 @@ public class Procesar extends javax.swing.JFrame {
                         TiempoProceso++;
                         Dormir();
                     }
+                    tiempoEspera= TiempoProceso-tiempoLlegada;
                     jTIngreso.setValueAt("Espera",i,4);
                     if(ResiduoRafaga==0){
                         jTIngreso.setValueAt("Terminado",i,4);
@@ -490,7 +490,7 @@ public class Procesar extends javax.swing.JFrame {
                         Borrar(i);
                         jPBEstado.setValue(0);
                     }
-            }else{
+            }else{//Cuando el quantum es menor que la rafaga
                 if(ResiduoRafaga>0 && Quantum!=0){
                     while(ResiduoRafaga>0){
                         jTIngreso.setValueAt("Procesando",i,4);
