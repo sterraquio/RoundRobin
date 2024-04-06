@@ -239,11 +239,11 @@ public class Procesar extends javax.swing.JFrame {
 
             },
             new String [] {
-                "# de orden de llegada", "Rafaga", "Quantum", "Tiempo terminación", "Estado", "Tiempo Llegada", "Tiempo espera", "Tiempo proceso maquina"
+                "# de orden de llegada", "Rafaga", "Quantum", "Tiempo terminación", "Estado", "Tiempo Llegada", "Tiempo espera"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -260,7 +260,6 @@ public class Procesar extends javax.swing.JFrame {
             jTFinal.getColumnModel().getColumn(4).setResizable(false);
             jTFinal.getColumnModel().getColumn(5).setResizable(false);
             jTFinal.getColumnModel().getColumn(6).setResizable(false);
-            jTFinal.getColumnModel().getColumn(7).setResizable(false);
         }
 
         jLabel7.setText("Proceso");
@@ -619,7 +618,7 @@ public class Procesar extends javax.swing.JFrame {
         miTabla[4] = "Terminado";
         miTabla[5] = (String) jTIngreso.getValueAt(c, 5);
         miTabla[6] = tiempoEspera + " segundos";
-        miTabla[7] = Rafaga + segundos + "segundos";
+        //miTabla[7] = Rafaga + segundos + "segundos";
         modelo2.addRow(miTabla);
         jTFinal.setModel(modelo2);
 
