@@ -90,12 +90,12 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel8" pref="348" max="32767" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jLCantidadTiempo1" pref="144" max="32767" attributes="0"/>
+                                      <Component id="jLpromedioTerminacionProceso" pref="144" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel9" max="32767" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jLCantidadProcesos1" max="32767" attributes="0"/>
+                                      <Component id="jLPromedioEspera" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -183,7 +183,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="jLabel9" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
-                      <Component id="jLCantidadProcesos1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLPromedioEspera" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel5" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
@@ -194,7 +194,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLCantidadTiempo" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="jLCantidadTiempo1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLpromedioTerminacionProceso" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel8" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -509,7 +509,7 @@
         <Property name="text" type="java.lang.String" value="TIEMPO PROMEDIO TERMINACI&#xd3;N PROCESO"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jLCantidadTiempo1">
+    <Component class="javax.swing.JTextField" name="jLpromedioTerminacionProceso">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -520,8 +520,11 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jLCantidadTiempo1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jLpromedioTerminacionProcesoActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
@@ -531,7 +534,7 @@
         <Property name="text" type="java.lang.String" value="TIEMPO PROMEDIO DE ESPERA"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jLCantidadProcesos1">
+    <Component class="javax.swing.JTextField" name="jLPromedioEspera">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -542,8 +545,11 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jLCantidadProcesos1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jLPromedioEsperaActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

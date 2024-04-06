@@ -88,9 +88,9 @@ public class Procesar extends javax.swing.JFrame {
         jTFinal = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLCantidadTiempo1 = new javax.swing.JTextField();
+        jLpromedioTerminacionProceso = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jLCantidadProcesos1 = new javax.swing.JTextField();
+        jLPromedioEspera = new javax.swing.JTextField();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -267,24 +267,24 @@ public class Procesar extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("TIEMPO PROMEDIO TERMINACIÓN PROCESO");
 
-        jLCantidadTiempo1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLCantidadTiempo1.setDisabledTextColor(new java.awt.Color(255, 0, 51));
-        jLCantidadTiempo1.setEnabled(false);
-        jLCantidadTiempo1.addActionListener(new java.awt.event.ActionListener() {
+        jLpromedioTerminacionProceso.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLpromedioTerminacionProceso.setDisabledTextColor(new java.awt.Color(255, 0, 51));
+        jLpromedioTerminacionProceso.setEnabled(false);
+        jLpromedioTerminacionProceso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jLCantidadTiempo1ActionPerformed(evt);
+                jLpromedioTerminacionProcesoActionPerformed(evt);
             }
         });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("TIEMPO PROMEDIO DE ESPERA");
 
-        jLCantidadProcesos1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLCantidadProcesos1.setDisabledTextColor(new java.awt.Color(255, 0, 51));
-        jLCantidadProcesos1.setEnabled(false);
-        jLCantidadProcesos1.addActionListener(new java.awt.event.ActionListener() {
+        jLPromedioEspera.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLPromedioEspera.setDisabledTextColor(new java.awt.Color(255, 0, 51));
+        jLPromedioEspera.setEnabled(false);
+        jLPromedioEspera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jLCantidadProcesos1ActionPerformed(evt);
+                jLPromedioEsperaActionPerformed(evt);
             }
         });
 
@@ -313,11 +313,11 @@ public class Procesar extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jLCantidadTiempo1, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+                                        .addComponent(jLpromedioTerminacionProceso, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jLCantidadProcesos1))))
+                                        .addComponent(jLPromedioEspera))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -382,7 +382,7 @@ public class Procesar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLCantidadProcesos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLPromedioEspera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLCantidadProcesos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -390,7 +390,7 @@ public class Procesar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLCantidadTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLCantidadTiempo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLpromedioTerminacionProceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -451,13 +451,13 @@ public class Procesar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLPorcentajeProcesoActionPerformed
 
-    private void jLCantidadTiempo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLCantidadTiempo1ActionPerformed
+    private void jLpromedioTerminacionProcesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLpromedioTerminacionProcesoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLCantidadTiempo1ActionPerformed
+    }//GEN-LAST:event_jLpromedioTerminacionProcesoActionPerformed
 
-    private void jLCantidadProcesos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLCantidadProcesos1ActionPerformed
+    private void jLPromedioEsperaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLPromedioEsperaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLCantidadProcesos1ActionPerformed
+    }//GEN-LAST:event_jLPromedioEsperaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -556,6 +556,7 @@ public class Procesar extends javax.swing.JFrame {
                     }
                     jLNumeroProceso.setText(String.valueOf("")); 
                     jLPorcentajeProceso.setText(String.valueOf(""));
+                    
                     i++;
                 }
                 i = 0;
@@ -689,11 +690,10 @@ public class Procesar extends javax.swing.JFrame {
     public javax.swing.JButton jBAgregar;
     private javax.swing.JButton jBIniciar;
     private javax.swing.JTextField jLCantidadProcesos;
-    private javax.swing.JTextField jLCantidadProcesos1;
     private javax.swing.JTextField jLCantidadTiempo;
-    private javax.swing.JTextField jLCantidadTiempo1;
     private javax.swing.JTextField jLNumeroProceso;
     private javax.swing.JTextField jLPorcentajeProceso;
+    public javax.swing.JTextField jLPromedioEspera;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -703,6 +703,7 @@ public class Procesar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    public javax.swing.JTextField jLpromedioTerminacionProceso;
     private javax.swing.JProgressBar jPBEstado;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
