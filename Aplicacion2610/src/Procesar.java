@@ -52,10 +52,10 @@ public class Procesar extends javax.swing.JFrame {
 
     }
 
-    private String iniciarConteo() {
+    private int iniciarConteo() {
         segundos++;
         
-        if (segundos == 60) {
+        if (segundos == 120) {
             segundos = 0;
             minutos++;
 
@@ -66,7 +66,7 @@ public class Procesar extends javax.swing.JFrame {
              
         }
         
-        return ""+minutos+":"+segundos;
+        return segundos;
     }
 
     public long obtenerTiempoRealTranscurrido() {
@@ -640,7 +640,7 @@ public class Procesar extends javax.swing.JFrame {
         miTabla[4] = "Terminado";
         miTabla[5] = segundos + " segundos";
         miTabla[6] = tiempoEspera + " segundos";
-        miTabla[7] = Rafaga + segundos+ "segundos bro";
+        miTabla[7] = Rafaga + segundos+ "segundos";
         modelo2.addRow(miTabla);
         jTFinal.setModel(modelo2);
 
