@@ -92,6 +92,8 @@ public class Procesar extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jtf_timeProEspera = new javax.swing.JTextField();
         jtf_timeProSistema = new javax.swing.JTextField();
+        jbl_tiempoLlegada = new javax.swing.JLabel();
+        jTFCapturaLlegada = new javax.swing.JTextField();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -296,6 +298,16 @@ public class Procesar extends javax.swing.JFrame {
             }
         });
 
+        jbl_tiempoLlegada.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        jbl_tiempoLlegada.setText("Tiempo de llegada");
+
+        jTFCapturaLlegada.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTFCapturaLlegada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFCapturaLlegadaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -322,13 +334,19 @@ public class Procesar extends javax.swing.JFrame {
                                             .addComponent(jTFCapturaQuantum, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTFCapturaRafaga, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(53, 53, 53)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jBIniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jBAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(119, 119, 119)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jbl_tiempoLlegada))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jTFCapturaRafaga, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jTFCapturaLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(37, 37, 37)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jBAgregar)
+                                            .addComponent(jBIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(45, 45, 45)
                                         .addComponent(jb_cerrar)))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
@@ -367,24 +385,22 @@ public class Procesar extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jBAgregar)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTFCapturaRafaga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBIniciar)
-                            .addComponent(jTFCapturaQuantum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jb_cerrar)
-                        .addGap(22, 22, 22)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jBAgregar)
+                    .addComponent(jLabel1)
+                    .addComponent(jb_cerrar)
+                    .addComponent(jbl_tiempoLlegada))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTFCapturaRafaga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBIniciar)
+                    .addComponent(jTFCapturaQuantum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTFCapturaLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -422,19 +438,25 @@ public class Procesar extends javax.swing.JFrame {
     private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
         // TODO add your handling code here:
 
-        if ((Integer.parseInt(jTFCapturaRafaga.getText())) >=1 && (Integer.parseInt(jTFCapturaRafaga.getText())) <=12 && (Integer.parseInt(jTFCapturaQuantum.getText())) >=1 && (Integer.parseInt(jTFCapturaQuantum.getText())) <=12 ) {
-           
-            //tiempoRealInicio = Instant.now();
+        if ((Integer.parseInt(jTFCapturaRafaga.getText())) >= 1 && (Integer.parseInt(jTFCapturaRafaga.getText())) <= 12) {
+            if ((Integer.parseInt(jTFCapturaQuantum.getText())) >= 1 && (Integer.parseInt(jTFCapturaQuantum.getText())) <= 12) {
 
-            Ingresar();
-            jTFCapturaQuantum.setEditable(false);
+                Ingresar();
+                jTFCapturaQuantum.setEditable(false);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "El Quamtum no pueden ser mayores de 12 y minimo 1");
+                jTFCapturaQuantum.setText(null);
+                jTFCapturaQuantum.grabFocus();
+            }
+
         } else {
-            JOptionPane.showMessageDialog(null, "Las Rafagas y el Quamtum no pueden ser mayores de 12 y minimo 1");
+            JOptionPane.showMessageDialog(null, "Las Rafagas no pueden ser mayores de 12 y minimo 1");
             jTFCapturaRafaga.setText(null);
             jTFCapturaRafaga.grabFocus();
         }
 
-        tiempo.start();
+        //tiempo.start();
         //tiempoLlegada = (int) obtenerTiempoRealTranscurrido();
 
     }//GEN-LAST:event_jBAgregarActionPerformed
@@ -483,6 +505,10 @@ public class Procesar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtf_timeProSistemaActionPerformed
 
+    private void jTFCapturaLlegadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFCapturaLlegadaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFCapturaLlegadaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -518,19 +544,19 @@ public class Procesar extends javax.swing.JFrame {
         });
     }
 
-       private class Hilo implements Runnable { 
+    private class Hilo implements Runnable {
 
         @Override
         public void run() {
-            int estado = 1; 
-            int i = 0; 
+            int estado = 1;
+            int i = 0;
 
             while (estado != 0) {
-                while (i < Contador) { 
+                while (i < Contador) {
                     Cargar(i);
                     tiempoEspera = TiempoProceso - tiempoLlegada;
-                    if (ResiduoRafaga != 0 && ResiduoRafaga > Quantum) { 
-                        
+                    if (ResiduoRafaga != 0 && ResiduoRafaga > Quantum) {
+
                         for (int c = 1; c <= Quantum; c++) {
                             jTIngreso.setValueAt("Procesando", i, 4);
                             ResiduoRafaga--;
@@ -540,7 +566,7 @@ public class Procesar extends javax.swing.JFrame {
                             TiempoProceso++;
                             Dormir();
                         }
-                        
+
                         jTIngreso.setValueAt("Espera", i, 4);
                         if (ResiduoRafaga == 0) {
                             jTIngreso.setValueAt("Terminado", i, 4);
@@ -578,13 +604,13 @@ public class Procesar extends javax.swing.JFrame {
                             }
                         }
                     }
-                    jLNumeroProceso.setText(String.valueOf("")); 
+                    jLNumeroProceso.setText(String.valueOf(""));
                     jLPorcentajeProceso.setText(String.valueOf(""));
-                    
+
                     i++;
                 }
                 i = 0;
-                jLNumeroProceso.setText(String.valueOf("")); 
+                jLNumeroProceso.setText(String.valueOf(""));
                 jLPorcentajeProceso.setText(String.valueOf(""));
 
             }
@@ -594,14 +620,14 @@ public class Procesar extends javax.swing.JFrame {
 
     public void Dormir() {
         try {
-            Thread.sleep(700); 
+            Thread.sleep(700);
         } catch (InterruptedException ex) {
             Logger.getLogger(Procesar.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
-    public void Cargar(int i) { 
+    public void Cargar(int i) {
         NProceso = (int) jTIngreso.getValueAt(i, 0);
         Rafaga = parseInt((String) (jTIngreso.getValueAt(i, 1)));
         Quantum = parseInt((String) (jTIngreso.getValueAt(i, 2)));
@@ -611,7 +637,7 @@ public class Procesar extends javax.swing.JFrame {
         }
     }
 
-    public void Ingresar() { 
+    public void Ingresar() {
         DefaultTableModel modelo1 = (DefaultTableModel) jTIngreso.getModel();
 
         Contador++;
@@ -621,7 +647,7 @@ public class Procesar extends javax.swing.JFrame {
         miTabla[2] = jTFCapturaQuantum.getText();
         miTabla[3] = jTFCapturaRafaga.getText();
         miTabla[4] = "Listo";
-        miTabla[5] = iniciarConteo() + " segundos";
+        miTabla[5] = jTFCapturaLlegada.getText() + " segundos";
 
         // Guardar el valor de miTabla[5] en una variable
         String valorMiTabla5 = (String) miTabla[5];
@@ -652,10 +678,10 @@ public class Procesar extends javax.swing.JFrame {
         jLCantidadTiempo.setText(String.valueOf(TiempoProceso + " Segundos"));
         jtf_timeProEspera.setText(String.valueOf(calcularPromedioTiempoEspera(tiempoEspera, Contador)));
         jtf_timeProSistema.setText(String.valueOf(calcularPromedioTiempos(iniciarConteo(), Contador)));
-        
+
     }
 
-    public void Borrar(int c) { 
+    public void Borrar(int c) {
         jTIngreso.setValueAt(0, c, 0);
         jTIngreso.setValueAt("0", c, 1);
         jTIngreso.setValueAt("0", c, 2);
@@ -664,7 +690,7 @@ public class Procesar extends javax.swing.JFrame {
         jTIngreso.setValueAt("0", c, 5);
     }
 
-    public void Barra(int rafaga, int residuo) { 
+    public void Barra(int rafaga, int residuo) {
         int Rafaga = rafaga;
         int valor = 100 / rafaga;
         int porcentaje = 100 - (valor * residuo);
@@ -677,11 +703,12 @@ public class Procesar extends javax.swing.JFrame {
         jPBEstado.repaint();
     }
 
-    public void Iniciar() { 
+    public void Iniciar() {
         jLabel2.setVisible(false);
         jLabel1.setVisible(false);
         jTFCapturaRafaga.setVisible(false);
         jTFCapturaQuantum.setVisible(false);
+        jTFCapturaLlegada.setVisible(false);
         jBAgregar.setVisible(false);
         jBIniciar.setVisible(false);
     }
@@ -690,19 +717,18 @@ public class Procesar extends javax.swing.JFrame {
     public int calcularTiempoTerminacion(int tiempoLlegada, int tiempoProceso) {
         return tiempoLlegada + tiempoProceso;
     }
-    
-public double calcularPromedioTiempos(int totalTiempos, int cantidadProcesos) {
-    return (double) totalTiempos / cantidadProcesos;
-}
-    
+
+    public double calcularPromedioTiempos(int totalTiempos, int cantidadProcesos) {
+        return (double) totalTiempos / cantidadProcesos;
+    }
+
     public int calcularTiempoEspera(int tiempoLlegada, int tiempoTerminacion, int tiempoProceso) {
         return (tiempoTerminacion - tiempoLlegada) - tiempoProceso;
     }
-    
-public double calcularPromedioTiempoEspera(int totalTiemposEspera, int cantidadProcesos) {
-    return (double) totalTiemposEspera / cantidadProcesos;
-}
 
+    public double calcularPromedioTiempoEspera(int totalTiemposEspera, int cantidadProcesos) {
+        return (double) totalTiemposEspera / cantidadProcesos;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -726,6 +752,7 @@ public double calcularPromedioTiempoEspera(int totalTiemposEspera, int cantidadP
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextField jTFCapturaLlegada;
     private javax.swing.JTextField jTFCapturaQuantum;
     private javax.swing.JTextField jTFCapturaRafaga;
     private javax.swing.JTable jTFinal;
@@ -733,6 +760,7 @@ public double calcularPromedioTiempoEspera(int totalTiemposEspera, int cantidadP
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JButton jb_cerrar;
+    public javax.swing.JLabel jbl_tiempoLlegada;
     public javax.swing.JTextField jtf_timeProEspera;
     private javax.swing.JTextField jtf_timeProSistema;
     // End of variables declaration//GEN-END:variables
