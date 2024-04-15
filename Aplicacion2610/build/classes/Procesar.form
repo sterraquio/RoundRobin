@@ -543,7 +543,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Liberation Sans" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="PROMEDIO DEL SISTEMA"/>
+        <Property name="text" type="java.lang.String" value="PROMEDIO TIEMPO TERMINACI&#xd3;N"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtf_timeProEspera">

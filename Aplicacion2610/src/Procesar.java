@@ -11,7 +11,8 @@ import java.time.Instant;
 import javax.swing.Timer;
 
 public class Procesar extends javax.swing.JFrame {
-
+    private double resultProceso=0;
+    private double resultEspera=0;
     int Contador;//Contador del total de procesos que se van ingresando
     int NProceso;//Carga el número de procesos ejecutándose
     int Rafaga = 0;//Carga la ráfaga en ejecución
@@ -280,7 +281,7 @@ public class Procesar extends javax.swing.JFrame {
         jLabel8.setText("PROMEDIO DE ESPERA");
 
         jLabel9.setFont(new java.awt.Font("Liberation Sans", 1, 12)); // NOI18N
-        jLabel9.setText("PROMEDIO DEL SISTEMA");
+        jLabel9.setText("PROMEDIO TIEMPO TERMINACIÓN");
 
         jtf_timeProEspera.setDisabledTextColor(new java.awt.Color(255, 0, 0));
         jtf_timeProEspera.setEnabled(false);
@@ -443,6 +444,7 @@ public class Procesar extends javax.swing.JFrame {
 
                 Ingresar();
                 jTFCapturaQuantum.setEditable(false);
+                jTFCapturaLlegada.setText(null);
 
             } else {
                 JOptionPane.showMessageDialog(null, "El Quamtum no pueden ser mayores de 12 y minimo 1");
@@ -665,7 +667,7 @@ public class Procesar extends javax.swing.JFrame {
         miTabla[0] = c + 1;
         miTabla[1] = Rafaga;
         miTabla[2] = Quantum;
-        miTabla[3] = calcularTiempoTerminacion(tiempoLlegada, TiempoProceso) + " Segundos";
+        miTabla[3] = TiempoProceso + " Segundos";
         miTabla[4] = "Terminado";
         miTabla[5] = (String) jTIngreso.getValueAt(c, 5);
         miTabla[6] = tiempoEspera + " segundos";
@@ -677,7 +679,7 @@ public class Procesar extends javax.swing.JFrame {
         jLCantidadProcesos.setText(String.valueOf(CantidadProcesos + " Terminados"));
         jLCantidadTiempo.setText(String.valueOf(TiempoProceso + " Segundos"));
         jtf_timeProEspera.setText(String.valueOf(calcularPromedioTiempoEspera(tiempoEspera, Contador)));
-        jtf_timeProSistema.setText(String.valueOf(calcularPromedioTiempos(iniciarConteo(), Contador)));
+        jtf_timeProSistema.setText(String.valueOf(calcularPromedioTiempos(TiempoProceso, Contador)));
 
     }
 
@@ -719,7 +721,8 @@ public class Procesar extends javax.swing.JFrame {
     }
 
     public double calcularPromedioTiempos(int totalTiempos, int cantidadProcesos) {
-        return (double) totalTiempos / cantidadProcesos;
+        resultProceso+= (double) totalTiempos / cantidadProcesos;
+        return resultProceso;
     }
 
     public int calcularTiempoEspera(int tiempoLlegada, int tiempoTerminacion, int tiempoProceso) {
@@ -727,7 +730,8 @@ public class Procesar extends javax.swing.JFrame {
     }
 
     public double calcularPromedioTiempoEspera(int totalTiemposEspera, int cantidadProcesos) {
-        return (double) totalTiemposEspera / cantidadProcesos;
+        resultEspera+= (double) totalTiemposEspera / cantidadProcesos;
+        return resultEspera;
     }
 
 
