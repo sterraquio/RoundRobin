@@ -439,29 +439,31 @@ public class Procesar extends javax.swing.JFrame {
 
     private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
         // TODO add your handling code here:
+        try {
+            if ((Integer.parseInt(jTFCapturaRafaga.getText())) >= 1 && (Integer.parseInt(jTFCapturaRafaga.getText())) <= 12) {
+                if ((Integer.parseInt(jTFCapturaQuantum.getText())) >= 1 && (Integer.parseInt(jTFCapturaQuantum.getText())) <= 12) {
 
-        if ((Integer.parseInt(jTFCapturaRafaga.getText())) >= 1 && (Integer.parseInt(jTFCapturaRafaga.getText())) <= 12) {
-            if ((Integer.parseInt(jTFCapturaQuantum.getText())) >= 1 && (Integer.parseInt(jTFCapturaQuantum.getText())) <= 12) {
+                    Ingresar();
+                    jTFCapturaQuantum.setEditable(false);
+                    jTFCapturaLlegada.setText(null);
 
-                Ingresar();
-                jTFCapturaQuantum.setEditable(false);
-                jTFCapturaLlegada.setText(null);
+                } else {
+                    JOptionPane.showMessageDialog(null, "El Quamtum no pueden ser mayores de 12 y minimo 1");
+                    jTFCapturaQuantum.setText(null);
+                    jTFCapturaQuantum.grabFocus();
+                }
 
             } else {
-                JOptionPane.showMessageDialog(null, "El Quamtum no pueden ser mayores de 12 y minimo 1");
-                jTFCapturaQuantum.setText(null);
-                jTFCapturaQuantum.grabFocus();
+                JOptionPane.showMessageDialog(null, "Las Rafagas no pueden ser mayores de 12 y minimo 1");
+                jTFCapturaRafaga.setText(null);
+                jTFCapturaRafaga.grabFocus();
             }
 
-        } else {
-            JOptionPane.showMessageDialog(null, "Las Rafagas no pueden ser mayores de 12 y minimo 1");
-            jTFCapturaRafaga.setText(null);
-            jTFCapturaRafaga.grabFocus();
+            //tiempo.start();
+            //tiempoLlegada = (int) obtenerTiempoRealTranscurrido();
+        }catch(NumberFormatException errorA){
+        JOptionPane.showMessageDialog(null, "Los recuadros deben tener valores numericos.");
         }
-
-        //tiempo.start();
-        //tiempoLlegada = (int) obtenerTiempoRealTranscurrido();
-
     }//GEN-LAST:event_jBAgregarActionPerformed
 
     private void jTFCapturaRafagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFCapturaRafagaActionPerformed
@@ -574,7 +576,7 @@ public class Procesar extends javax.swing.JFrame {
                         //tiempoEspera += 1;
                         if (ResiduoRafaga == 0) {
                             jTIngreso.setValueAt("Terminado", i, 4);
-                            tiempoEspera=TiempoProceso-(Rafaga+tiempoLlegada);
+                            tiempoEspera = TiempoProceso - (Rafaga + tiempoLlegada);
                             Pintar();
                             Informe(i);
                             Borrar(i);
@@ -595,7 +597,7 @@ public class Procesar extends javax.swing.JFrame {
                             //tiempoEspera += 1;
                             if (ResiduoRafaga == 0 && Quantum != 0) {
                                 jTIngreso.setValueAt("Terminado", i, 4);
-                                tiempoEspera=TiempoProceso-(Rafaga+tiempoLlegada);
+                                tiempoEspera = TiempoProceso - (Rafaga + tiempoLlegada);
                                 Pintar();
                                 Informe(i);
                                 Borrar(i);
@@ -604,7 +606,7 @@ public class Procesar extends javax.swing.JFrame {
                         } else {
                             if (ResiduoRafaga == 0 && Quantum != 0) {
                                 jTIngreso.setValueAt("Terminado", i, 4);
-                                tiempoEspera=TiempoProceso-(Rafaga+tiempoLlegada);
+                                tiempoEspera = TiempoProceso - (Rafaga + tiempoLlegada);
                                 Pintar();
                                 Informe(i);
                                 Borrar(i);
@@ -640,8 +642,8 @@ public class Procesar extends javax.swing.JFrame {
         Rafaga = parseInt((String) (jTIngreso.getValueAt(i, 1)));
         Quantum = parseInt((String) (jTIngreso.getValueAt(i, 2)));
         ResiduoRafaga = parseInt((String) (jTIngreso.getValueAt(i, 3)));
-        tiempoLlegada=parseInt((String) (jTIngreso.getValueAt(i, 5)));
-        
+        tiempoLlegada = parseInt((String) (jTIngreso.getValueAt(i, 5)));
+
         if (NProceso > 0) {
             jLNumeroProceso.setText(String.valueOf(NProceso));
         }
