@@ -11,8 +11,9 @@ import java.time.Instant;
 import javax.swing.Timer;
 
 public class Procesar extends javax.swing.JFrame {
-    private double resultProceso=0;
-    private double resultEspera=0;
+
+    private double resultProceso = 0;
+    private double resultEspera = 0;
     int Contador;//Contador del total de procesos que se van ingresando
     int NProceso;//Carga el número de procesos ejecutándose
     int Rafaga = 0;//Carga la ráfaga en ejecución
@@ -556,7 +557,7 @@ public class Procesar extends javax.swing.JFrame {
             while (estado != 0) {
                 while (i < Contador) {
                     Cargar(i);
-                    tiempoEspera = TiempoProceso - tiempoLlegada;
+                    //tiempoEspera=2;
                     if (ResiduoRafaga != 0 && ResiduoRafaga > Quantum) {
 
                         for (int c = 1; c <= Quantum; c++) {
@@ -570,8 +571,10 @@ public class Procesar extends javax.swing.JFrame {
                         }
 
                         jTIngreso.setValueAt("Espera", i, 4);
+                        //tiempoEspera += 1;
                         if (ResiduoRafaga == 0) {
                             jTIngreso.setValueAt("Terminado", i, 4);
+                            tiempoEspera=TiempoProceso-(Rafaga+tiempoLlegada);
                             Pintar();
                             Informe(i);
                             Borrar(i);
@@ -589,8 +592,10 @@ public class Procesar extends javax.swing.JFrame {
                                 Dormir();
                             }
                             jTIngreso.setValueAt("Espera", i, 4);
+                            //tiempoEspera += 1;
                             if (ResiduoRafaga == 0 && Quantum != 0) {
                                 jTIngreso.setValueAt("Terminado", i, 4);
+                                tiempoEspera=TiempoProceso-(Rafaga+tiempoLlegada);
                                 Pintar();
                                 Informe(i);
                                 Borrar(i);
@@ -599,6 +604,7 @@ public class Procesar extends javax.swing.JFrame {
                         } else {
                             if (ResiduoRafaga == 0 && Quantum != 0) {
                                 jTIngreso.setValueAt("Terminado", i, 4);
+                                tiempoEspera=TiempoProceso-(Rafaga+tiempoLlegada);
                                 Pintar();
                                 Informe(i);
                                 Borrar(i);
@@ -634,6 +640,8 @@ public class Procesar extends javax.swing.JFrame {
         Rafaga = parseInt((String) (jTIngreso.getValueAt(i, 1)));
         Quantum = parseInt((String) (jTIngreso.getValueAt(i, 2)));
         ResiduoRafaga = parseInt((String) (jTIngreso.getValueAt(i, 3)));
+        tiempoLlegada=parseInt((String) (jTIngreso.getValueAt(i, 5)));
+        
         if (NProceso > 0) {
             jLNumeroProceso.setText(String.valueOf(NProceso));
         }
@@ -649,7 +657,7 @@ public class Procesar extends javax.swing.JFrame {
         miTabla[2] = jTFCapturaQuantum.getText();
         miTabla[3] = jTFCapturaRafaga.getText();
         miTabla[4] = "Listo";
-        miTabla[5] = jTFCapturaLlegada.getText() + " segundos";
+        miTabla[5] = jTFCapturaLlegada.getText();
 
         // Guardar el valor de miTabla[5] en una variable
         String valorMiTabla5 = (String) miTabla[5];
@@ -721,7 +729,7 @@ public class Procesar extends javax.swing.JFrame {
     }
 
     public double calcularPromedioTiempos(int totalTiempos, int cantidadProcesos) {
-        resultProceso+= (double) totalTiempos / cantidadProcesos;
+        resultProceso += (double) totalTiempos / cantidadProcesos;
         return resultProceso;
     }
 
@@ -730,7 +738,7 @@ public class Procesar extends javax.swing.JFrame {
     }
 
     public double calcularPromedioTiempoEspera(int totalTiemposEspera, int cantidadProcesos) {
-        resultEspera+= (double) totalTiemposEspera / cantidadProcesos;
+        resultEspera += (double) totalTiemposEspera / cantidadProcesos;
         return resultEspera;
     }
 
