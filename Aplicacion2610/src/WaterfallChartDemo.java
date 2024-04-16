@@ -23,6 +23,7 @@ public class WaterfallChartDemo extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         crearGrafico();//metodo para cargar los datos y crear el grafico
+        
 
         ChartPanel panel = new ChartPanel(chart, false);//ChartPanel es una clase del paquete JFreeChart
         //es igual que JPanel de swing. Sobre el ChartPanel se crea el grafico
