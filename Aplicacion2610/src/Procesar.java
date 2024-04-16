@@ -38,7 +38,6 @@ public class Procesar extends javax.swing.JFrame {
         jTFinal.setBackground(Color.yellow);
         //jTFinal.setBackground(Color.red);
         jTFCapturaQuantum.grabFocus();
-        
 
         tiempo = new Timer(1200, (ActionEvent e) -> {
             iniciarConteo();
@@ -529,7 +528,7 @@ public class Procesar extends javax.swing.JFrame {
 
     private void jBMostrarGraficaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMostrarGraficaActionPerformed
         // TODO add your handling code here:
-        WaterfallChartDemo grafico = new WaterfallChartDemo();
+        Grafico graficar = new Grafico();
     }//GEN-LAST:event_jBMostrarGraficaActionPerformed
 
     /**
