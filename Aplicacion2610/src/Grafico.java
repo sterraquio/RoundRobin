@@ -34,58 +34,80 @@ public class Grafico extends JFrame {
     }
 
     public void crearGrafico() {
-        TaskSeries series1 = new TaskSeries("Tiempo estimado");
-        series1.add(new Task("Requerimientos",
+        TaskSeries Proceso1 = new TaskSeries("Proceso 1");
+        Proceso1.add(new Task("Ronda 1",
                 Date.from(LocalDate.of(2017, 7, 3).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 7, 7).atStartOfDay().toInstant(ZoneOffset.UTC))));
 
-        series1.add(new Task("Diseño", 
+        Proceso1.add(new Task("Ronda 1", 
                 Date.from(LocalDate.of(2017, 7, 10).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 7, 14).atStartOfDay().toInstant(ZoneOffset.UTC))));
 
-        series1.add(new Task("Implementación", 
+        Proceso1.add(new Task("Ronda 2", 
                 Date.from(LocalDate.of(2017, 7, 17).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 7, 21).atStartOfDay().toInstant(ZoneOffset.UTC))));
 
-        series1.add(new Task("Pruebas", 
+        Proceso1.add(new Task("Ronda 3", 
                 Date.from(LocalDate.of(2017, 7, 24).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 7, 28).atStartOfDay().toInstant(ZoneOffset.UTC))));
 
-        series1.add(new Task("Mantenimiento", 
+        Proceso1.add(new Task("Ronda 4", 
                 Date.from(LocalDate.of(2017, 07, 31).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 8, 4).atStartOfDay().toInstant(ZoneOffset.UTC))));
 
         
-        TaskSeries series2 = new TaskSeries("Tiempo real");
-        series2.add(new Task("Requerimientos", 
+        TaskSeries series2 = new TaskSeries("Proceso 2");
+        series2.add(new Task("Ronda 1", 
                 Date.from(LocalDate.of(2017, 7, 3).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 7, 6).atStartOfDay().toInstant(ZoneOffset.UTC))));
 
-        series2.add(new Task("Diseño",
+        series2.add(new Task("Ronda 2",
                 Date.from(LocalDate.of(2017, 7, 6).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 7, 17).atStartOfDay().toInstant(ZoneOffset.UTC))));
 
-        series2.add(new Task("Implementación",
+        series2.add(new Task("Ronda 3",
                 Date.from(LocalDate.of(2017, 7, 18).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 7, 27).atStartOfDay().toInstant(ZoneOffset.UTC))));
 
-        series2.add(new Task("Pruebas",
+        series2.add(new Task("Ronda 4",
                 Date.from(LocalDate.of(2017, 7, 24).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 7, 30).atStartOfDay().toInstant(ZoneOffset.UTC))));
 
-        series2.add(new Task("Mantenimiento",
+        series2.add(new Task("Ronda 5",
+                Date.from(LocalDate.of(2017, 8, 2).atStartOfDay().toInstant(ZoneOffset.UTC)),
+                Date.from(LocalDate.of(2017, 8, 4).atStartOfDay().toInstant(ZoneOffset.UTC))));
+        
+        
+        TaskSeries series3 = new TaskSeries("Proceso 3");
+        series3.add(new Task("Ronda 1", 
+                Date.from(LocalDate.of(2017, 7, 3).atStartOfDay().toInstant(ZoneOffset.UTC)),
+                Date.from(LocalDate.of(2017, 7, 6).atStartOfDay().toInstant(ZoneOffset.UTC))));
+
+        series3.add(new Task("Ronda 2",
+                Date.from(LocalDate.of(2017, 7, 6).atStartOfDay().toInstant(ZoneOffset.UTC)),
+                Date.from(LocalDate.of(2017, 7, 17).atStartOfDay().toInstant(ZoneOffset.UTC))));
+
+        series3.add(new Task("Ronda 3",
+                Date.from(LocalDate.of(2017, 7, 18).atStartOfDay().toInstant(ZoneOffset.UTC)),
+                Date.from(LocalDate.of(2017, 7, 27).atStartOfDay().toInstant(ZoneOffset.UTC))));
+
+        series3.add(new Task("Ronda 4",
+                Date.from(LocalDate.of(2017, 7, 24).atStartOfDay().toInstant(ZoneOffset.UTC)),
+                Date.from(LocalDate.of(2017, 7, 30).atStartOfDay().toInstant(ZoneOffset.UTC))));
+
+        series3.add(new Task("Ronda 5",
                 Date.from(LocalDate.of(2017, 8, 2).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 8, 4).atStartOfDay().toInstant(ZoneOffset.UTC))));
 
         TaskSeriesCollection dataset = new TaskSeriesCollection();
-        dataset.add(series1);
+        dataset.add(Proceso1);
         dataset.add(series2);
-        
+        dataset.add(series3);
         // Create chart  
         chart = ChartFactory.createGanttChart(
-                "Gantt Chart Example",  // Titulo
-                "Fases del proyecto",   // Etiqueta de X  
-                "Linea de tiempo",      // Etiqueta de Y
+                "Parte Grafica",  // Titulo
+                "Rondas",   // Etiqueta de X  
+                "Segundos ",      // Etiqueta de Y
                 dataset,                // Conjunto de datos
                 true, true, true);
     }
