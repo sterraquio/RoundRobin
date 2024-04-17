@@ -797,4 +797,70 @@ public class Procesar extends javax.swing.JFrame {
     public javax.swing.JTextField jtf_timeProEspera;
     private javax.swing.JTextField jtf_timeProSistema;
     // End of variables declaration//GEN-END:variables
+
+    public int getRafaga() {
+        return Rafaga;
+    }
+
+    public void setRafaga(int Rafaga) {
+        this.Rafaga = Rafaga;
+    }
+
+    public int getQuantum() {
+        return Quantum;
+    }
+
+    public void setQuantum(int Quantum) {
+        this.Quantum = Quantum;
+    }
+
+    public int getResiduoRafaga() {
+        return ResiduoRafaga;
+    }
+
+    public void setResiduoRafaga(int ResiduoRafaga) {
+        this.ResiduoRafaga = ResiduoRafaga;
+    }
+
+    public int getTiempoProceso() {
+        return TiempoProceso;
+    }
+
+    public void setTiempoProceso(int TiempoProceso) {
+        this.TiempoProceso = TiempoProceso;
+    }
+
+    public int getCantidadProcesos() {
+        return CantidadProcesos;
+    }
+
+    public void setCantidadProcesos(int CantidadProcesos) {
+        this.CantidadProcesos = CantidadProcesos;
+    }
+
+    public int getTiempoLlegada() {
+        return tiempoLlegada;
+    }
+
+    public void setTiempoLlegada(int tiempoLlegada) {
+        this.tiempoLlegada = tiempoLlegada;
+    }
+
+    public int getTiempoEspera() {
+        return tiempoEspera;
+    }
+
+    public void setTiempoEspera(int tiempoEspera) {
+        this.tiempoEspera = tiempoEspera;
+    }
+
+    public Timer getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(Timer tiempo) {
+        this.tiempo = tiempo;
+    }
+
 }
+

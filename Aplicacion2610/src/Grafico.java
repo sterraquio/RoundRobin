@@ -11,6 +11,8 @@ import org.jfree.data.gantt.TaskSeries;
 import org.jfree.data.gantt.TaskSeriesCollection;
 
 public class Grafico extends JFrame {
+    
+    private Procesar unProceso;
 
     JFreeChart chart;//declaramos un objeto de la clase JFreeChart para construir el grafico
 
@@ -31,11 +33,14 @@ public class Grafico extends JFrame {
         add(panel); //anadimos el panel al JFrame
 
         setVisible(true); //mostrar el JFrame  
+        
     }
 
     public void crearGrafico() {
         TaskSeries Proceso1 = new TaskSeries("Proceso 1");
         Proceso1.add(new Task("Ronda 1",
+//                unProceso.getCantidadProcesos(),
+                
                 Date.from(LocalDate.of(2017, 7, 3).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 7, 7).atStartOfDay().toInstant(ZoneOffset.UTC))));
 
