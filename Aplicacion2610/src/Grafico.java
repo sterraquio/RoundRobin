@@ -11,17 +11,18 @@ import org.jfree.data.gantt.TaskSeries;
 import org.jfree.data.gantt.TaskSeriesCollection;
 
 public class Grafico extends JFrame {
-    
+
     private Procesar unProceso;
 
     JFreeChart chart;//declaramos un objeto de la clase JFreeChart para construir el grafico
 
     public Grafico() {
+
         //crear el JFrame
         super("Ejemplo de GanttChart");
         setSize(800, 600);
         setLayout(null);
-        setResizable(false);
+        setResizable(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -33,36 +34,44 @@ public class Grafico extends JFrame {
         add(panel); //anadimos el panel al JFrame
 
         setVisible(true); //mostrar el JFrame  
-        
+        this.unProceso = new Procesar();
+
     }
 
     public void crearGrafico() {
-        TaskSeries Proceso1 = new TaskSeries("Proceso 1");
+        for (int i = 1; i <= this.unProceso.getCantidadProcesos(); i++) {
+
+            String numProceso = "Proceso " + i;
+
+            TaskSeries Proceso1 = new TaskSeries(numProceso);
+            
+            
+        }
+
         Proceso1.add(new Task("Ronda 1",
-//                unProceso.getCantidadProcesos(),
-                
+                //                unProceso.getCantidadProcesos(),
+
                 Date.from(LocalDate.of(2017, 7, 3).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 7, 7).atStartOfDay().toInstant(ZoneOffset.UTC))));
 
-        Proceso1.add(new Task("Ronda 1", 
+        Proceso1.add(new Task("Ronda 1",
                 Date.from(LocalDate.of(2017, 7, 10).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 7, 14).atStartOfDay().toInstant(ZoneOffset.UTC))));
 
-        Proceso1.add(new Task("Ronda 2", 
+        Proceso1.add(new Task("Ronda 2",
                 Date.from(LocalDate.of(2017, 7, 17).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 7, 21).atStartOfDay().toInstant(ZoneOffset.UTC))));
 
-        Proceso1.add(new Task("Ronda 3", 
+        Proceso1.add(new Task("Ronda 3",
                 Date.from(LocalDate.of(2017, 7, 24).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 7, 28).atStartOfDay().toInstant(ZoneOffset.UTC))));
 
-        Proceso1.add(new Task("Ronda 4", 
+        Proceso1.add(new Task("Ronda 4",
                 Date.from(LocalDate.of(2017, 07, 31).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 8, 4).atStartOfDay().toInstant(ZoneOffset.UTC))));
 
-        
         TaskSeries series2 = new TaskSeries("Proceso 2");
-        series2.add(new Task("Ronda 1", 
+        series2.add(new Task("Ronda 1",
                 Date.from(LocalDate.of(2017, 7, 3).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 7, 6).atStartOfDay().toInstant(ZoneOffset.UTC))));
 
@@ -81,10 +90,9 @@ public class Grafico extends JFrame {
         series2.add(new Task("Ronda 5",
                 Date.from(LocalDate.of(2017, 8, 2).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 8, 4).atStartOfDay().toInstant(ZoneOffset.UTC))));
-        
-        
+
         TaskSeries series3 = new TaskSeries("Proceso 3");
-        series3.add(new Task("Ronda 1", 
+        series3.add(new Task("Ronda 1",
                 Date.from(LocalDate.of(2017, 7, 3).atStartOfDay().toInstant(ZoneOffset.UTC)),
                 Date.from(LocalDate.of(2017, 7, 6).atStartOfDay().toInstant(ZoneOffset.UTC))));
 
@@ -110,10 +118,10 @@ public class Grafico extends JFrame {
         dataset.add(series3);
         // Create chart  
         chart = ChartFactory.createGanttChart(
-                "Parte Grafica",  // Titulo
-                "Rondas",   // Etiqueta de X  
-                "Segundos ",      // Etiqueta de Y
-                dataset,                // Conjunto de datos
+                "Parte Grafica", // Titulo
+                "Rondas", // Etiqueta de X  
+                "Segundos ", // Etiqueta de Y
+                dataset, // Conjunto de datos
                 true, true, true);
     }
 

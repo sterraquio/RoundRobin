@@ -8,6 +8,12 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import java.time.Duration;
 import java.time.Instant;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JProgressBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.Timer;
 
 public class Procesar extends javax.swing.JFrame {
@@ -762,10 +768,324 @@ public class Procesar extends javax.swing.JFrame {
         return resultEspera;
     }
 
+    public double getResultProceso() {
+        return resultProceso;
+    }
 
+    public void setResultProceso(double resultProceso) {
+        this.resultProceso = resultProceso;
+    }
+
+    public double getResultEspera() {
+        return resultEspera;
+    }
+
+    public void setResultEspera(double resultEspera) {
+        this.resultEspera = resultEspera;
+    }
+
+    public int getContador() {
+        return Contador;
+    }
+
+    public void setContador(int Contador) {
+        this.Contador = Contador;
+    }
+
+    public int getNProceso() {
+        return NProceso;
+    }
+
+    public void setNProceso(int NProceso) {
+        this.NProceso = NProceso;
+    }
+
+    public int getValorBarra() {
+        return ValorBarra;
+    }
+
+    public void setValorBarra(int ValorBarra) {
+        this.ValorBarra = ValorBarra;
+    }
+
+    public int getMinutos() {
+        return minutos;
+    }
+
+    public void setMinutos(int minutos) {
+        this.minutos = minutos;
+    }
+
+    public int getSegundos() {
+        return segundos;
+    }
+
+    public void setSegundos(int segundos) {
+        this.segundos = segundos;
+    }
+
+    public JButton getjBAgregar() {
+        return jBAgregar;
+    }
+
+    public void setjBAgregar(JButton jBAgregar) {
+        this.jBAgregar = jBAgregar;
+    }
+
+    public JButton getjBIniciar() {
+        return jBIniciar;
+    }
+
+    public void setjBIniciar(JButton jBIniciar) {
+        this.jBIniciar = jBIniciar;
+    }
+
+    public JButton getjBMostrarGrafica() {
+        return jBMostrarGrafica;
+    }
+
+    public void setjBMostrarGrafica(JButton jBMostrarGrafica) {
+        this.jBMostrarGrafica = jBMostrarGrafica;
+    }
+
+    public JTextField getjLCantidadProcesos() {
+        return jLCantidadProcesos;
+    }
+
+    public void setjLCantidadProcesos(JTextField jLCantidadProcesos) {
+        this.jLCantidadProcesos = jLCantidadProcesos;
+    }
+
+    public JTextField getjLCantidadTiempo() {
+        return jLCantidadTiempo;
+    }
+
+    public void setjLCantidadTiempo(JTextField jLCantidadTiempo) {
+        this.jLCantidadTiempo = jLCantidadTiempo;
+    }
+
+    public JTextField getjLNumeroProceso() {
+        return jLNumeroProceso;
+    }
+
+    public void setjLNumeroProceso(JTextField jLNumeroProceso) {
+        this.jLNumeroProceso = jLNumeroProceso;
+    }
+
+    public JTextField getjLPorcentajeProceso() {
+        return jLPorcentajeProceso;
+    }
+
+    public void setjLPorcentajeProceso(JTextField jLPorcentajeProceso) {
+        this.jLPorcentajeProceso = jLPorcentajeProceso;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    public void setjLabel5(JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
+    }
+
+    public JLabel getjLabel6() {
+        return jLabel6;
+    }
+
+    public void setjLabel6(JLabel jLabel6) {
+        this.jLabel6 = jLabel6;
+    }
+
+    public JLabel getjLabel7() {
+        return jLabel7;
+    }
+
+    public void setjLabel7(JLabel jLabel7) {
+        this.jLabel7 = jLabel7;
+    }
+
+    public JLabel getjLabel8() {
+        return jLabel8;
+    }
+
+    public void setjLabel8(JLabel jLabel8) {
+        this.jLabel8 = jLabel8;
+    }
+
+    public JLabel getjLabel9() {
+        return jLabel9;
+    }
+
+    public void setjLabel9(JLabel jLabel9) {
+        this.jLabel9 = jLabel9;
+    }
+
+    public JProgressBar getjPBEstado() {
+        return jPBEstado;
+    }
+
+    public void setjPBEstado(JProgressBar jPBEstado) {
+        this.jPBEstado = jPBEstado;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public void setjScrollPane2(JScrollPane jScrollPane2) {
+        this.jScrollPane2 = jScrollPane2;
+    }
+
+    public JScrollPane getjScrollPane3() {
+        return jScrollPane3;
+    }
+
+    public void setjScrollPane3(JScrollPane jScrollPane3) {
+        this.jScrollPane3 = jScrollPane3;
+    }
+
+    public JScrollPane getjScrollPane4() {
+        return jScrollPane4;
+    }
+
+    public void setjScrollPane4(JScrollPane jScrollPane4) {
+        this.jScrollPane4 = jScrollPane4;
+    }
+
+    public JTextField getjTFCapturaLlegada() {
+        return jTFCapturaLlegada;
+    }
+
+    public void setjTFCapturaLlegada(JTextField jTFCapturaLlegada) {
+        this.jTFCapturaLlegada = jTFCapturaLlegada;
+    }
+
+    public JTextField getjTFCapturaQuantum() {
+        return jTFCapturaQuantum;
+    }
+
+    public void setjTFCapturaQuantum(JTextField jTFCapturaQuantum) {
+        this.jTFCapturaQuantum = jTFCapturaQuantum;
+    }
+
+    public JTextField getjTFCapturaRafaga() {
+        return jTFCapturaRafaga;
+    }
+
+    public void setjTFCapturaRafaga(JTextField jTFCapturaRafaga) {
+        this.jTFCapturaRafaga = jTFCapturaRafaga;
+    }
+
+    public JTable getjTFinal() {
+        return jTFinal;
+    }
+
+    public void setjTFinal(JTable jTFinal) {
+        this.jTFinal = jTFinal;
+    }
+
+    public JTable getjTIngreso() {
+        return jTIngreso;
+    }
+
+    public void setjTIngreso(JTable jTIngreso) {
+        this.jTIngreso = jTIngreso;
+    }
+
+    public JTable getjTable1() {
+        return jTable1;
+    }
+
+    public void setjTable1(JTable jTable1) {
+        this.jTable1 = jTable1;
+    }
+
+    public JTable getjTable2() {
+        return jTable2;
+    }
+
+    public void setjTable2(JTable jTable2) {
+        this.jTable2 = jTable2;
+    }
+
+    public JButton getJb_cerrar() {
+        return jb_cerrar;
+    }
+
+    public void setJb_cerrar(JButton jb_cerrar) {
+        this.jb_cerrar = jb_cerrar;
+    }
+
+    public JLabel getJbl_tiempoLlegada() {
+        return jbl_tiempoLlegada;
+    }
+
+    public void setJbl_tiempoLlegada(JLabel jbl_tiempoLlegada) {
+        this.jbl_tiempoLlegada = jbl_tiempoLlegada;
+    }
+
+    public JTextField getJtf_timeProEspera() {
+        return jtf_timeProEspera;
+    }
+
+    public void setJtf_timeProEspera(JTextField jtf_timeProEspera) {
+        this.jtf_timeProEspera = jtf_timeProEspera;
+    }
+
+    public JTextField getJtf_timeProSistema() {
+        return jtf_timeProSistema;
+    }
+
+    public void setJtf_timeProSistema(JTextField jtf_timeProSistema) {
+        this.jtf_timeProSistema = jtf_timeProSistema;
+    }
+
+
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jBAgregar;
-    private javax.swing.JButton jBIniciar;
+    public javax.swing.JButton jBIniciar;
     public javax.swing.JButton jBMostrarGrafica;
     private javax.swing.JTextField jLCantidadProcesos;
     private javax.swing.JTextField jLCantidadTiempo;
@@ -785,17 +1105,17 @@ public class Procesar extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextField jTFCapturaLlegada;
-    private javax.swing.JTextField jTFCapturaQuantum;
-    private javax.swing.JTextField jTFCapturaRafaga;
-    private javax.swing.JTable jTFinal;
-    private javax.swing.JTable jTIngreso;
+    public javax.swing.JTextField jTFCapturaLlegada;
+    public javax.swing.JTextField jTFCapturaQuantum;
+    public javax.swing.JTextField jTFCapturaRafaga;
+    public javax.swing.JTable jTFinal;
+    public javax.swing.JTable jTIngreso;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JButton jb_cerrar;
+    public javax.swing.JButton jb_cerrar;
     public javax.swing.JLabel jbl_tiempoLlegada;
     public javax.swing.JTextField jtf_timeProEspera;
-    private javax.swing.JTextField jtf_timeProSistema;
+    public javax.swing.JTextField jtf_timeProSistema;
     // End of variables declaration//GEN-END:variables
 
     public int getRafaga() {
